@@ -55,5 +55,49 @@ namespace TaymotiveTests
                 "Se generaron 40 usuarios con 5 rutinas cada uno."
             );
         }
+
+        public static void GenerateTrainers()
+        {
+            string filePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Files",
+                "trainers.json"
+            );
+
+            FileHandler<Trainer> fileHandler =
+                new FileHandler<Trainer>(filePath);
+
+            List<Trainer> trainers = new List<Trainer>();
+
+            string[] specialties =
+            {
+                "Musculacion",
+                "CrossFit",
+                "Yoga",
+                "Spinning",
+                "Entrenamiento funcional"
+            };
+
+            for (int i = 1; i <= 40; i++)
+            {
+                Trainer trainer = new Trainer(
+                    i,
+                    "Entrenador " + i,
+                    25 + (i % 25),
+                    65 + (i % 25),
+                    1.65 + (i % 20) * 0.01,
+                    specialties[(i - 1) % specialties.Length],
+                    i % 2 == 0
+                );
+
+                trainers.Add(trainer);
+            }
+
+            fileHandler.Save(trainers);
+
+            Console.WriteLine(
+                "Se generaron 40 entrenadores correctamente."
+            );
+        }
     }
 }

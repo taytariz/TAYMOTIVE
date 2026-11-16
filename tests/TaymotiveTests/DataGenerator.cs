@@ -99,5 +99,80 @@ namespace TaymotiveTests
                 "Se generaron 40 entrenadores correctamente."
             );
         }
+
+        public static void GenerateVisits()
+        {
+            string filePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Files",
+                "visits.json"
+            );
+
+            FileHandler<Visit> fileHandler =
+                new FileHandler<Visit>(filePath);
+
+            List<Visit> visits = new List<Visit>();
+
+            string[] classes =
+            {
+                "Yoga",
+                "Spinning",
+                "CrossFit",
+                "Funcional",
+                "Musculacion"
+            };
+
+            for (int i = 1; i <= 40; i++)
+            {
+                Visit visit = new Visit(
+                    i,
+                    i,
+                    DateTime.Today.AddDays(-(i % 30)),
+                    classes[(i - 1) % classes.Length]
+                );
+
+                visits.Add(visit);
+            }
+
+            fileHandler.Save(visits);
+
+            Console.WriteLine(
+                "Se generaron 40 visitas correctamente."
+            );
+        }
+
+        public static void GenerateMeasurements()
+        {
+            string filePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Files",
+                "measurements.json"
+            );
+
+            FileHandler<Measurement> fileHandler =
+                new FileHandler<Measurement>(filePath);
+
+            List<Measurement> measurements =
+                new List<Measurement>();
+
+            for (int i = 1; i <= 40; i++)
+            {
+                Measurement measurement = new Measurement(
+                    i,
+                    i,
+                    DateTime.Today.AddDays(-(i % 30)),
+                    60 + (i % 30),
+                    1.60 + (i % 20) * 0.01
+                );
+
+                measurements.Add(measurement);
+            }
+
+            fileHandler.Save(measurements);
+
+            Console.WriteLine(
+                "Se generaron 40 mediciones correctamente."
+            );
+        }
     }
 }

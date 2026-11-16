@@ -5,6 +5,8 @@ using TaymotiveModels.Models;
 
 DataGenerator.GenerateUsers();
 DataGenerator.GenerateTrainers();
+DataGenerator.GenerateVisits();
+DataGenerator.GenerateMeasurements();
 
 string filePath = Path.Combine(
     Directory.GetCurrentDirectory(),
@@ -40,3 +42,33 @@ FileHandler<Trainer> trainerHandler =
 List<Trainer> trainers = trainerHandler.Read();
 
 Console.WriteLine("Entrenadores registrados: " + trainers.Count);
+
+
+string visitsPath = Path.Combine(
+    Directory.GetCurrentDirectory(),
+    "Files",
+    "visits.json"
+);
+
+FileHandler<Visit> visitHandler =
+    new FileHandler<Visit>(visitsPath);
+
+List<Visit> visits = visitHandler.Read();
+
+Console.WriteLine("Visitas registradas: " + visits.Count);
+
+string measurementsPath = Path.Combine(
+    Directory.GetCurrentDirectory(),
+    "Files",
+    "measurements.json"
+);
+
+FileHandler<Measurement> measurementHandler =
+    new FileHandler<Measurement>(measurementsPath);
+
+List<Measurement> measurements = measurementHandler.Read();
+
+Console.WriteLine(
+    "Mediciones registradas: " + measurements.Count
+);
+

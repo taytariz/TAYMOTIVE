@@ -1,7 +1,9 @@
 
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using TaymotiveController.Controllers;
 
 namespace Taymotive.Views
 {
@@ -16,8 +18,18 @@ namespace Taymotive.Views
 
         private Button btnLogin = new Button();
 
+        private readonly LoginController loginController;
+
         public LoginView()
         {
+            string filePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Files",
+                "users.json"
+            );
+
+            loginController = new LoginController(filePath);
+
             InitializeComponents();
         }
 
@@ -26,9 +38,15 @@ namespace Taymotive.Views
             this.Text = "TAYMOTIVE - Inicio de sesión";
             this.Size = new Size(450, 350);
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
 
             lblTitle.Text = "TAYMOTIVE";
-            lblTitle.Font = new Font("Arial", 20, FontStyle.Bold);
+            lblTitle.Font = new Font(
+                "Arial",
+                20,
+                FontStyle.Bold
+            );
             lblTitle.Location = new Point(125, 30);
             lblTitle.AutoSize = true;
 
@@ -53,6 +71,8 @@ namespace Taymotive.Views
 
             btnLogin.Click += BtnLogin_Click;
 
+            this.AcceptButton = btnLogin;
+
             this.Controls.Add(lblTitle);
             this.Controls.Add(lblUsername);
             this.Controls.Add(txtUsername);
@@ -63,12 +83,60 @@ namespace Taymotive.Views
 
         private void BtnLogin_Click(object? sender, EventArgs e)
         {
-            MessageBox.Show(
-                "Próximamente implementaremos el inicio de sesión.",
-                "TAYMOTIVE",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text;
+
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show(
+                    "Debe ingresar el usuario y la contraseña.",
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            bool validUser = loginController.ValidateUser(
+                username,
+                password
             );
+
+            if (validUser)
+            {
+                MessageBox.Show(
+                    "Inicio de sesión exitoso.",
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                txtPassword.Clear();
+
+                this.Hide();
+
+                using (MainMenuView mainMenu = new MainMenuView())
+                {
+                    mainMenu.ShowDialog();
+                }
+
+                this.Show();
+                txtPassword.Focus();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Usuario o contraseña incorrectos.",
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
+                txtPassword.Clear();
+                txtPassword.Focus();
+            }
         }
     }
 }

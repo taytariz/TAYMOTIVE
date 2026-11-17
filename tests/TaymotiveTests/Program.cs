@@ -2,11 +2,12 @@
 using TaymotiveTests;
 using TaymotiveController.Data;
 using TaymotiveModels.Models;
+using TaymotiveController.Security;
 
-DataGenerator.GenerateUsers();
-DataGenerator.GenerateTrainers();
-DataGenerator.GenerateVisits();
-DataGenerator.GenerateMeasurements();
+//DataGenerator.GenerateUsers();
+//DataGenerator.GenerateTrainers();
+//DataGenerator.GenerateVisits();
+//DataGenerator.GenerateMeasurements();
 
 string filePath = Path.Combine(
     Directory.GetCurrentDirectory(),
@@ -72,3 +73,32 @@ Console.WriteLine(
     "Mediciones registradas: " + measurements.Count
 );
 
+
+Console.WriteLine("\n--- PRUEBA DE SEGURIDAD ---");
+
+string testPassword = "PruebaTemporal123!";
+
+string passwordHash =
+    PasswordHelper.HashPassword(testPassword);
+
+bool validPassword =
+    PasswordHelper.VerifyPassword(
+        testPassword,
+        passwordHash
+    );
+
+bool invalidPassword =
+    PasswordHelper.VerifyPassword(
+        "ClaveIncorrecta",
+        passwordHash
+    );
+
+Console.WriteLine(
+    "Contraseña correcta: " + validPassword
+);
+
+Console.WriteLine(
+    "Contraseña incorrecta: " + invalidPassword
+);
+
+AdminSetup.CreateTestAccount();

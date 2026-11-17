@@ -1,5 +1,6 @@
 
 using TaymotiveController.Data;
+using TaymotiveController.Security;
 using TaymotiveModels.Models;
 
 namespace TaymotiveController.Controllers
@@ -27,11 +28,20 @@ namespace TaymotiveController.Controllers
 
             foreach (User user in users)
             {
-                if (user.Username == username)
+                if (string.Equals(
+                    user.Username,
+                    username,
+                    StringComparison.OrdinalIgnoreCase))
                 {
-                    // La autenticación con hash se implementará
-                    // antes de habilitar el acceso real.
-                    return false;
+                    if (string.IsNullOrWhiteSpace(user.Password))
+                    {
+                        return false;
+                    }
+
+                    return PasswordHelper.VerifyPassword(
+                        password,
+                        user.Password
+                    );
                 }
             }
 

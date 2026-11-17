@@ -17,16 +17,19 @@ namespace TaymotiveController.Controllers
             fileHandler = new FileHandler<User>(filePath);
         }
 
+        // Obtener todos los usuarios
         public List<User> GetUsers()
         {
             return fileHandler.Read();
         }
 
+        // Obtener la cantidad total de usuarios
         public int GetTotalUsers()
         {
             return GetUsers().Count;
         }
 
+        // Buscar un usuario por su ID
         public User? GetUserById(int id)
         {
             return GetUsers().FirstOrDefault(
@@ -34,6 +37,7 @@ namespace TaymotiveController.Controllers
             );
         }
 
+        // Registrar un nuevo usuario
         public bool RegisterUser(
             string name,
             int age,
@@ -59,7 +63,7 @@ namespace TaymotiveController.Controllers
             bool exists = users.Any(
                 user => string.Equals(
                     user.Username,
-                    username,
+                    username.Trim(),
                     StringComparison.OrdinalIgnoreCase
                 )
             );
@@ -85,6 +89,92 @@ namespace TaymotiveController.Controllers
             );
 
             users.Add(newUser);
+
+            fileHandler.Save(users);
+
+            return true;
+        }
+
+        // Modificar un usuario existente
+        public bool UpdateUser(
+            int id,
+            string name,
+            int age,
+            double weight,
+            double height,
+            string username,
+            string goal)
+        {
+            if (string.IsNullOrWhiteSpace(name) ||
+                string.IsNullOrWhiteSpace(username) ||
+                age <= 0 ||
+                weight <= 0 ||
+                height <= 0)
+            {
+                return false;
+            }
+
+            List<User> users = GetUsers();
+
+            User? userToUpdate = users.FirstOrDefault(
+                user => user.Id == id
+            );
+
+            if (userToUpdate == null)
+            {
+                return false;
+            }
+
+            bool usernameExists = users.Any(
+                user => user.Id != id &&
+                string.Equals(
+                    user.Username,
+                    username.Trim(),
+                    StringComparison.OrdinalIgnoreCase
+                )
+            );
+
+            if (usernameExists)
+            {
+                return false;
+            }
+
+            userToUpdate.Name = name.Trim();
+            userToUpdate.Age = age;
+            userToUpdate.Weight = weight;
+            userToUpdate.Height = height;
+            userToUpdate.Username = username.Trim();
+            userToUpdate.Goal = goal.Trim();
+
+            fileHandler.Save(users);
+
+            return true;
+        }
+
+        // Eliminar un usuario existente
+        public bool DeleteUser(int id)
+        {
+            List<User> users = GetUsers();
+
+            User? userToDelete = users.FirstOrDefault(
+                user => user.Id == id
+            );
+
+            if (userToDelete == null)
+            {
+                return false;
+            }
+
+            // Evitar eliminar la cuenta administradora
+            if (string.Equals(
+                userToDelete.Username,
+                "admin",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+
+            users.Remove(userToDelete);
 
             fileHandler.Save(users);
 

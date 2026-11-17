@@ -71,7 +71,7 @@ namespace Taymotive.Views
                 btnLogout, "Cerrar sesión", 225, 410
             );
 
-            btnUsers.Click += ShowPendingMessage;
+            btnUsers.Click += BtnUsers_Click;
             btnTrainers.Click += ShowPendingMessage;
             btnRoutines.Click += ShowPendingMessage;
             btnMeasurements.Click += ShowPendingMessage;
@@ -120,5 +120,14 @@ namespace Taymotive.Views
         {
             this.Close();
         }
+
+        private void BtnUsers_Click(object? sender, EventArgs e)
+        {           
+        using (UsersView usersView = new UsersView())
+        {
+            usersView.ShowDialog();
+            }
+        }
+
     }
 }

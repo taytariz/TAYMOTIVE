@@ -33,7 +33,9 @@ namespace Taymotive.Views
 
             lblTitle.Text = "TAYMOTIVE";
             lblTitle.Font = new Font(
-                "Arial", 24, FontStyle.Bold
+                "Arial",
+                24,
+                FontStyle.Bold
             );
             lblTitle.Location = new Point(205, 30);
             lblTitle.AutoSize = true;
@@ -44,35 +46,58 @@ namespace Taymotive.Views
             lblWelcome.AutoSize = true;
 
             ConfigureButton(
-                btnUsers, "Usuarios", 100, 150
+                btnUsers,
+                "Usuarios",
+                100,
+                150
             );
 
             ConfigureButton(
-                btnTrainers, "Entrenadores", 350, 150
+                btnTrainers,
+                "Entrenadores",
+                350,
+                150
             );
 
             ConfigureButton(
-                btnRoutines, "Rutinas", 100, 230
+                btnRoutines,
+                "Rutinas",
+                100,
+                230
             );
 
             ConfigureButton(
-                btnMeasurements, "Mediciones", 350, 230
+                btnMeasurements,
+                "Mediciones",
+                350,
+                230
             );
 
             ConfigureButton(
-                btnVisits, "Visitas y clases", 100, 310
+                btnVisits,
+                "Visitas y clases",
+                100,
+                310
             );
 
             ConfigureButton(
-                btnReports, "Reportes", 350, 310
+                btnReports,
+                "Reportes",
+                350,
+                310
             );
 
             ConfigureButton(
-                btnLogout, "Cerrar sesión", 225, 410
+                btnLogout,
+                "Cerrar sesión",
+                225,
+                410
             );
 
+            // Eventos de los botones
             btnUsers.Click += BtnUsers_Click;
-            btnTrainers.Click += ShowPendingMessage;
+            btnTrainers.Click += BtnTrainers_Click;
+
             btnRoutines.Click += ShowPendingMessage;
             btnMeasurements.Click += ShowPendingMessage;
             btnVisits.Click += ShowPendingMessage;
@@ -80,6 +105,7 @@ namespace Taymotive.Views
 
             btnLogout.Click += BtnLogout_Click;
 
+            // Agregar controles al formulario
             this.Controls.Add(lblTitle);
             this.Controls.Add(lblWelcome);
             this.Controls.Add(btnUsers);
@@ -91,6 +117,7 @@ namespace Taymotive.Views
             this.Controls.Add(btnLogout);
         }
 
+        // Configurar botones del menú
         private void ConfigureButton(
             Button button,
             string text,
@@ -102,6 +129,29 @@ namespace Taymotive.Views
             button.Size = new Size(200, 50);
         }
 
+        // Abrir gestión de usuarios
+        private void BtnUsers_Click(
+            object? sender,
+            EventArgs e)
+        {
+            using (UsersView usersView = new UsersView())
+            {
+                usersView.ShowDialog(this);
+            }
+        }
+
+        // Abrir gestión de entrenadores
+        private void BtnTrainers_Click(
+            object? sender,
+            EventArgs e)
+        {
+            using (TrainersView trainersView = new TrainersView())
+            {
+                trainersView.ShowDialog(this);
+            }
+        }
+
+        // Mostrar mensaje para módulos pendientes
         private void ShowPendingMessage(
             object? sender,
             EventArgs e)
@@ -114,20 +164,12 @@ namespace Taymotive.Views
             );
         }
 
+        // Cerrar sesión
         private void BtnLogout_Click(
             object? sender,
             EventArgs e)
         {
             this.Close();
         }
-
-        private void BtnUsers_Click(object? sender, EventArgs e)
-        {           
-        using (UsersView usersView = new UsersView())
-        {
-            usersView.ShowDialog();
-            }
-        }
-
     }
 }

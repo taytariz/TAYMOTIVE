@@ -25,11 +25,11 @@ namespace Taymotive.Views
 
         private void InitializeComponents()
         {
-            this.Text = "TAYMOTIVE - Menú principal";
-            this.Size = new Size(650, 550);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            Text = "TAYMOTIVE - Menú principal";
+            Size = new Size(650, 550);
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
             lblTitle.Text = "TAYMOTIVE";
             lblTitle.Font = new Font(
@@ -45,52 +45,31 @@ namespace Taymotive.Views
             lblWelcome.Location = new Point(205, 85);
             lblWelcome.AutoSize = true;
 
-            ConfigureButton(
-                btnUsers, "Usuarios", 100, 150
-            );
-
-            ConfigureButton(
-                btnTrainers, "Entrenadores", 350, 150
-            );
-
-            ConfigureButton(
-                btnRoutines, "Rutinas", 100, 230
-            );
-
-            ConfigureButton(
-                btnMeasurements, "Mediciones", 350, 230
-            );
-
-            ConfigureButton(
-                btnVisits, "Visitas y clases", 100, 310
-            );
-
-            ConfigureButton(
-                btnReports, "Reportes", 350, 310
-            );
-
-            ConfigureButton(
-                btnLogout, "Cerrar sesión", 225, 410
-            );
+            ConfigureButton(btnUsers, "Usuarios", 100, 150);
+            ConfigureButton(btnTrainers, "Entrenadores", 350, 150);
+            ConfigureButton(btnRoutines, "Rutinas", 100, 230);
+            ConfigureButton(btnMeasurements, "Mediciones", 350, 230);
+            ConfigureButton(btnVisits, "Visitas y clases", 100, 310);
+            ConfigureButton(btnReports, "Reportes", 350, 310);
+            ConfigureButton(btnLogout, "Cerrar sesión", 225, 410);
 
             btnUsers.Click += BtnUsers_Click;
             btnTrainers.Click += BtnTrainers_Click;
             btnRoutines.Click += BtnRoutines_Click;
             btnMeasurements.Click += BtnMeasurements_Click;
             btnVisits.Click += BtnVisits_Click;
-
-            btnReports.Click += ShowPendingMessage;
+            btnReports.Click += BtnReports_Click;
             btnLogout.Click += BtnLogout_Click;
 
-            this.Controls.Add(lblTitle);
-            this.Controls.Add(lblWelcome);
-            this.Controls.Add(btnUsers);
-            this.Controls.Add(btnTrainers);
-            this.Controls.Add(btnRoutines);
-            this.Controls.Add(btnMeasurements);
-            this.Controls.Add(btnVisits);
-            this.Controls.Add(btnReports);
-            this.Controls.Add(btnLogout);
+            Controls.Add(lblTitle);
+            Controls.Add(lblWelcome);
+            Controls.Add(btnUsers);
+            Controls.Add(btnTrainers);
+            Controls.Add(btnRoutines);
+            Controls.Add(btnMeasurements);
+            Controls.Add(btnVisits);
+            Controls.Add(btnReports);
+            Controls.Add(btnLogout);
         }
 
         private void ConfigureButton(
@@ -104,62 +83,57 @@ namespace Taymotive.Views
             button.Size = new Size(200, 50);
         }
 
-        private void ShowPendingMessage(
-            object? sender,
-            EventArgs e)
-        {
-            MessageBox.Show(
-                "Esta funcionalidad se implementará próximamente.",
-                "TAYMOTIVE",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-        }
-
         private void BtnUsers_Click(object? sender, EventArgs e)
         {
-            using (UsersView usersView = new UsersView())
+            using (UsersView view = new UsersView())
             {
-                usersView.ShowDialog(this);
+                view.ShowDialog(this);
             }
         }
 
         private void BtnTrainers_Click(object? sender, EventArgs e)
         {
-            using (TrainersView trainersView = new TrainersView())
+            using (TrainersView view = new TrainersView())
             {
-                trainersView.ShowDialog(this);
+                view.ShowDialog(this);
             }
         }
 
         private void BtnRoutines_Click(object? sender, EventArgs e)
         {
-            using (RoutinesView routinesView = new RoutinesView())
+            using (RoutinesView view = new RoutinesView())
             {
-                routinesView.ShowDialog(this);
+                view.ShowDialog(this);
             }
         }
 
         private void BtnMeasurements_Click(object? sender, EventArgs e)
         {
-            using (MeasurementsView measurementsView =
-                new MeasurementsView())
+            using (MeasurementsView view = new MeasurementsView())
             {
-                measurementsView.ShowDialog(this);
+                view.ShowDialog(this);
             }
         }
 
         private void BtnVisits_Click(object? sender, EventArgs e)
         {
-            using (VisitsView visitsView = new VisitsView())
+            using (VisitsView view = new VisitsView())
             {
-                visitsView.ShowDialog(this);
+                view.ShowDialog(this);
+            }
+        }
+
+        private void BtnReports_Click(object? sender, EventArgs e)
+        {
+            using (ReportsView view = new ReportsView())
+            {
+                view.ShowDialog(this);
             }
         }
 
         private void BtnLogout_Click(object? sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

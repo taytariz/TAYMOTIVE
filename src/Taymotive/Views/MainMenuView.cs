@@ -45,22 +45,41 @@ namespace Taymotive.Views
             lblWelcome.Location = new Point(205, 85);
             lblWelcome.AutoSize = true;
 
-            ConfigureButton(btnUsers, "Usuarios", 100, 150);
-            ConfigureButton(btnTrainers, "Entrenadores", 350, 150);
-            ConfigureButton(btnRoutines, "Rutinas", 100, 230);
-            ConfigureButton(btnMeasurements, "Mediciones", 350, 230);
-            ConfigureButton(btnVisits, "Visitas y clases", 100, 310);
-            ConfigureButton(btnReports, "Reportes", 350, 310);
-            ConfigureButton(btnLogout, "Cerrar sesión", 225, 410);
+            ConfigureButton(
+                btnUsers, "Usuarios", 100, 150
+            );
+
+            ConfigureButton(
+                btnTrainers, "Entrenadores", 350, 150
+            );
+
+            ConfigureButton(
+                btnRoutines, "Rutinas", 100, 230
+            );
+
+            ConfigureButton(
+                btnMeasurements, "Mediciones", 350, 230
+            );
+
+            ConfigureButton(
+                btnVisits, "Visitas y clases", 100, 310
+            );
+
+            ConfigureButton(
+                btnReports, "Reportes", 350, 310
+            );
+
+            ConfigureButton(
+                btnLogout, "Cerrar sesión", 225, 410
+            );
 
             btnUsers.Click += BtnUsers_Click;
             btnTrainers.Click += BtnTrainers_Click;
             btnRoutines.Click += BtnRoutines_Click;
+            btnMeasurements.Click += BtnMeasurements_Click;
+            btnVisits.Click += BtnVisits_Click;
 
-            btnMeasurements.Click += ShowPendingMessage;
-            btnVisits.Click += ShowPendingMessage;
             btnReports.Click += ShowPendingMessage;
-
             btnLogout.Click += BtnLogout_Click;
 
             this.Controls.Add(lblTitle);
@@ -83,6 +102,18 @@ namespace Taymotive.Views
             button.Text = text;
             button.Location = new Point(x, y);
             button.Size = new Size(200, 50);
+        }
+
+        private void ShowPendingMessage(
+            object? sender,
+            EventArgs e)
+        {
+            MessageBox.Show(
+                "Esta funcionalidad se implementará próximamente.",
+                "TAYMOTIVE",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
         private void BtnUsers_Click(object? sender, EventArgs e)
@@ -109,14 +140,21 @@ namespace Taymotive.Views
             }
         }
 
-        private void ShowPendingMessage(object? sender, EventArgs e)
+        private void BtnMeasurements_Click(object? sender, EventArgs e)
         {
-            MessageBox.Show(
-                "Esta funcionalidad se implementará próximamente.",
-                "TAYMOTIVE",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            using (MeasurementsView measurementsView =
+                new MeasurementsView())
+            {
+                measurementsView.ShowDialog(this);
+            }
+        }
+
+        private void BtnVisits_Click(object? sender, EventArgs e)
+        {
+            using (VisitsView visitsView = new VisitsView())
+            {
+                visitsView.ShowDialog(this);
+            }
         }
 
         private void BtnLogout_Click(object? sender, EventArgs e)

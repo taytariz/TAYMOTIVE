@@ -7,16 +7,16 @@ namespace Taymotive.Views
 {
     public class MainMenuView : Form
     {
-        private Label lblTitle = new Label();
-        private Label lblWelcome = new Label();
+        private readonly Label lblTitle = new Label();
+        private readonly Label lblWelcome = new Label();
 
-        private Button btnUsers = new Button();
-        private Button btnTrainers = new Button();
-        private Button btnRoutines = new Button();
-        private Button btnMeasurements = new Button();
-        private Button btnVisits = new Button();
-        private Button btnReports = new Button();
-        private Button btnLogout = new Button();
+        private readonly Button btnUsers = new Button();
+        private readonly Button btnTrainers = new Button();
+        private readonly Button btnRoutines = new Button();
+        private readonly Button btnMeasurements = new Button();
+        private readonly Button btnVisits = new Button();
+        private readonly Button btnReports = new Button();
+        private readonly Button btnLogout = new Button();
 
         public MainMenuView()
         {
@@ -45,67 +45,24 @@ namespace Taymotive.Views
             lblWelcome.Location = new Point(205, 85);
             lblWelcome.AutoSize = true;
 
-            ConfigureButton(
-                btnUsers,
-                "Usuarios",
-                100,
-                150
-            );
+            ConfigureButton(btnUsers, "Usuarios", 100, 150);
+            ConfigureButton(btnTrainers, "Entrenadores", 350, 150);
+            ConfigureButton(btnRoutines, "Rutinas", 100, 230);
+            ConfigureButton(btnMeasurements, "Mediciones", 350, 230);
+            ConfigureButton(btnVisits, "Visitas y clases", 100, 310);
+            ConfigureButton(btnReports, "Reportes", 350, 310);
+            ConfigureButton(btnLogout, "Cerrar sesión", 225, 410);
 
-            ConfigureButton(
-                btnTrainers,
-                "Entrenadores",
-                350,
-                150
-            );
-
-            ConfigureButton(
-                btnRoutines,
-                "Rutinas",
-                100,
-                230
-            );
-
-            ConfigureButton(
-                btnMeasurements,
-                "Mediciones",
-                350,
-                230
-            );
-
-            ConfigureButton(
-                btnVisits,
-                "Visitas y clases",
-                100,
-                310
-            );
-
-            ConfigureButton(
-                btnReports,
-                "Reportes",
-                350,
-                310
-            );
-
-            ConfigureButton(
-                btnLogout,
-                "Cerrar sesión",
-                225,
-                410
-            );
-
-            // Eventos de los botones
             btnUsers.Click += BtnUsers_Click;
             btnTrainers.Click += BtnTrainers_Click;
+            btnRoutines.Click += BtnRoutines_Click;
 
-            btnRoutines.Click += ShowPendingMessage;
             btnMeasurements.Click += ShowPendingMessage;
             btnVisits.Click += ShowPendingMessage;
             btnReports.Click += ShowPendingMessage;
 
             btnLogout.Click += BtnLogout_Click;
 
-            // Agregar controles al formulario
             this.Controls.Add(lblTitle);
             this.Controls.Add(lblWelcome);
             this.Controls.Add(btnUsers);
@@ -117,7 +74,6 @@ namespace Taymotive.Views
             this.Controls.Add(btnLogout);
         }
 
-        // Configurar botones del menú
         private void ConfigureButton(
             Button button,
             string text,
@@ -129,10 +85,7 @@ namespace Taymotive.Views
             button.Size = new Size(200, 50);
         }
 
-        // Abrir gestión de usuarios
-        private void BtnUsers_Click(
-            object? sender,
-            EventArgs e)
+        private void BtnUsers_Click(object? sender, EventArgs e)
         {
             using (UsersView usersView = new UsersView())
             {
@@ -140,10 +93,7 @@ namespace Taymotive.Views
             }
         }
 
-        // Abrir gestión de entrenadores
-        private void BtnTrainers_Click(
-            object? sender,
-            EventArgs e)
+        private void BtnTrainers_Click(object? sender, EventArgs e)
         {
             using (TrainersView trainersView = new TrainersView())
             {
@@ -151,10 +101,15 @@ namespace Taymotive.Views
             }
         }
 
-        // Mostrar mensaje para módulos pendientes
-        private void ShowPendingMessage(
-            object? sender,
-            EventArgs e)
+        private void BtnRoutines_Click(object? sender, EventArgs e)
+        {
+            using (RoutinesView routinesView = new RoutinesView())
+            {
+                routinesView.ShowDialog(this);
+            }
+        }
+
+        private void ShowPendingMessage(object? sender, EventArgs e)
         {
             MessageBox.Show(
                 "Esta funcionalidad se implementará próximamente.",
@@ -164,10 +119,7 @@ namespace Taymotive.Views
             );
         }
 
-        // Cerrar sesión
-        private void BtnLogout_Click(
-            object? sender,
-            EventArgs e)
+        private void BtnLogout_Click(object? sender, EventArgs e)
         {
             this.Close();
         }

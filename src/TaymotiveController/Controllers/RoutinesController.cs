@@ -146,22 +146,31 @@ namespace TaymotiveController.Controllers
         {
             List<User> users = GetUsers();
 
-            foreach (User user in users)
+            List<Routine>? userRoutines = users
+                .Select(user => user.Routines)
+                .FirstOrDefault(routines =>
+                    routines.Any(routine =>
+                        routine.Id == routineId));
+
+            if (userRoutines == null)
             {
-                Routine? routine = user.Routines
-                    .FirstOrDefault(r => r.Id == routineId);
-
-                if (routine != null)
-                {
-                    user.Routines.Remove(routine);
-
-                    fileHandler.Save(users);
-
-                    return true;
-                }
+                return false;
             }
 
-            return false;
+            Routine? routineToDelete = userRoutines
+                .FirstOrDefault(routine =>
+                    routine.Id == routineId);
+
+            if (routineToDelete == null)
+            {
+                return false;
+            }
+
+            userRoutines.Remove(routineToDelete);
+
+            fileHandler.Save(users);
+
+            return true;
         }
 
         // Asignar un entrenador a una rutina existente

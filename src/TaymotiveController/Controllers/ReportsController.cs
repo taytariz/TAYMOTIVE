@@ -165,8 +165,11 @@ namespace TaymotiveController.Controllers
                 return 0;
             }
 
-            double initialWeight = measurements.First().Weight;
-            double finalWeight = measurements.Last().Weight;
+            double initialWeight =
+                measurements[0].Weight;
+
+            double finalWeight =
+                measurements[measurements.Count - 1].Weight;
 
             return finalWeight - initialWeight;
         }

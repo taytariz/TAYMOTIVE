@@ -138,7 +138,7 @@ namespace Taymotive.Views
             CenterTitle();
         }
 
-        private void ConfigureButton(Button button, int x)
+        private static void ConfigureButton(Button button, int x)
         {
             button.Location = new Point(x, 500);
             button.Size = new Size(165, 42);

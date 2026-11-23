@@ -184,7 +184,7 @@ namespace Taymotive.Views
             Controls.Add(btnClose);
         }
 
-        private void ConfigureGrid(DataGridView grid)
+        private static void ConfigureGrid(DataGridView grid)
         {
             grid.Dock = DockStyle.Fill;
             grid.ReadOnly = true;

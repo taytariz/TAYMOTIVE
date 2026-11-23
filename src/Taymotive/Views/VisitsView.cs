@@ -24,8 +24,8 @@ namespace Taymotive.Views
         private readonly VisitsController visitsController;
         private readonly UsersController usersController;
         private readonly FitnessGoalsController goalsController;
-        private readonly BadgesController badgesController;
-        private readonly MeasurementsController measurementsController;
+        
+        
         private readonly BadgeRulesController badgeRulesController;
 
         public VisitsView()
@@ -63,9 +63,9 @@ namespace Taymotive.Views
             visitsController = new VisitsController(visitsPath);
             usersController = new UsersController(usersPath);
             goalsController = new FitnessGoalsController(goalsPath);
-            badgesController = new BadgesController(badgesPath);
+            BadgesController badgesController = new BadgesController(badgesPath);
 
-            measurementsController =
+            MeasurementsController measurementsController =
                 new MeasurementsController(measurementsPath);
 
             badgeRulesController = new BadgeRulesController(
@@ -417,7 +417,7 @@ namespace Taymotive.Views
         }
 
         // Mostrar errores
-        private void ShowError(string message)
+        private static void ShowError(string message)
         {
             MessageBox.Show(
                 message,

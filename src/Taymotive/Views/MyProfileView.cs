@@ -160,7 +160,7 @@ namespace Taymotive.Views
             CenterTitle();
         }
 
-        private void ConfigureInformationLabel(
+        private static void ConfigureInformationLabel(
             Label label,
             int top)
         {

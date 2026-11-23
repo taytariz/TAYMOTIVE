@@ -259,7 +259,7 @@ namespace Taymotive.Views
         }
 
         // Dibujar gráfico de evolución
-        private void DrawChart(
+        private static void DrawChart(
             Graphics graphics,
             Rectangle area,
             List<Measurement> data,

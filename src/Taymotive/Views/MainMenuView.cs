@@ -526,7 +526,7 @@ namespace Taymotive.Views
         }
 
         // Mostrar mensaje de acceso restringido
-        private void ShowAccessDenied()
+        private static void ShowAccessDenied()
         {
             MessageBox.Show(
                 "No tiene permisos para acceder " +
@@ -614,7 +614,7 @@ namespace Taymotive.Views
         }
 
         // Configurar botones
-        private void ConfigureButton(
+        private static void ConfigureButton(
             Button button,
             string text,
             int x,

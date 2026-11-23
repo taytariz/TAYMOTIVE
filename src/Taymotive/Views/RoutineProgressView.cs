@@ -375,8 +375,8 @@ namespace Taymotive.Views
 
             if (chartRecords.Count >= 2)
             {
-                double initialWeight = chartRecords.First().Weight;
-                double finalWeight = chartRecords.Last().Weight;
+                double initialWeight = chartRecords[0].Weight;
+                double finalWeight = chartRecords[chartRecords.Count - 1].Weight;
 
                 double change = finalWeight - initialWeight;
 

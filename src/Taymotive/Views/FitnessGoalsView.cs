@@ -112,7 +112,7 @@ namespace Taymotive.Views
             Controls.Add(btnClose);
         }
 
-        private void ConfigureButton(
+        private static void ConfigureButton(
             Button button, string text, int x)
         {
             button.Text = text;
@@ -448,7 +448,7 @@ namespace Taymotive.Views
             };
         }
 
-        private decimal ClampValue(
+        private static decimal ClampValue(
             NumericUpDown control, double value)
         {
             decimal number = (decimal)value;
@@ -521,7 +521,7 @@ namespace Taymotive.Views
             }
         }
 
-        private void ShowError(string message, Exception ex)
+        private static void ShowError(string message, Exception ex)
         {
             MessageBox.Show(
                 message + ": " + ex.Message,
@@ -530,7 +530,7 @@ namespace Taymotive.Views
                 MessageBoxIcon.Error);
         }
 
-        private class UserOption
+        private sealed class UserOption
         {
             public int Id { get; }
             public string Name { get; }

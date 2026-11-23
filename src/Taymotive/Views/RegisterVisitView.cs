@@ -245,7 +245,7 @@ namespace Taymotive.Views
             Close();
         }
 
-        private class UserOption
+        private sealed class UserOption
         {
             public int Id { get; }
             public string Name { get; }

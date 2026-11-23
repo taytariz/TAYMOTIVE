@@ -125,7 +125,7 @@ namespace Taymotive.Views
         }
 
         // Configurar las columnas de las tablas
-        private void ConfigureGrid(DataGridView grid)
+        private static void ConfigureGrid(DataGridView grid)
         {
             grid.Dock = DockStyle.Fill;
             grid.ReadOnly = true;
@@ -214,7 +214,7 @@ namespace Taymotive.Views
         }
 
         // Agregar una rutina a la tabla
-        private void AddRoutineRow(
+        private static void AddRoutineRow(
             DataGridView grid,
             Routine routine,
             List<Trainer> trainers)

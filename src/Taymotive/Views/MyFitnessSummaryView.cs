@@ -277,7 +277,7 @@ namespace Taymotive.Views
         }
 
         // Configurar etiquetas
-        private void ConfigureLabel(
+        private static void ConfigureLabel(
             Label label,
             string text,
             int x,

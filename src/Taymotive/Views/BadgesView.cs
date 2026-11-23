@@ -28,7 +28,7 @@ namespace Taymotive.Views
         private readonly UsersController usersController;
         private readonly VisitsController visitsController;
         private readonly FitnessGoalsController goalsController;
-        private readonly MeasurementsController measurementsController;
+        
         private readonly BadgeRulesController badgeRulesController;
 
         public BadgesView()
@@ -68,7 +68,7 @@ namespace Taymotive.Views
             visitsController = new VisitsController(visitsPath);
             goalsController = new FitnessGoalsController(goalsPath);
 
-            measurementsController =
+            MeasurementsController measurementsController =
                 new MeasurementsController(measurementsPath);
 
             badgeRulesController = new BadgeRulesController(
@@ -400,7 +400,7 @@ namespace Taymotive.Views
             }
         }
 
-        private class UserOption
+        private sealed class UserOption
         {
             public int Id { get; }
             public string Name { get; }

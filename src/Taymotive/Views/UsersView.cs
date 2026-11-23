@@ -156,7 +156,7 @@ namespace Taymotive.Views
             this.Controls.Add(btnActivation);
         }
 
-        private void ConfigureButton(
+        private static void ConfigureButton(
             Button button,
             string text,
             int x,

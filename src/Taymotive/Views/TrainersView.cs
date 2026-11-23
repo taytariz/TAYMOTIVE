@@ -4,21 +4,24 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using TaymotiveController.Controllers;
+using TaymotiveModels.Models;
 
 namespace Taymotive.Views
 {
     public class TrainersView : Form
     {
-        private Label lblTitle = new Label();
-        private Label lblTotal = new Label();
+        private readonly Label lblTitle = new Label();
+        private readonly Label lblTotal = new Label();
 
-        private DataGridView dgvTrainers = new DataGridView();
+        private readonly DataGridView dgvTrainers =
+            new DataGridView();
 
-        private Button btnRegister = new Button();
-        private Button btnEdit = new Button();
-        private Button btnDelete = new Button();
-        private Button btnRefresh = new Button();
-        private Button btnClose = new Button();
+        private readonly Button btnRegister = new Button();
+        private readonly Button btnEdit = new Button();
+        private readonly Button btnDelete = new Button();
+        private readonly Button btnNotifications = new Button();
+        private readonly Button btnRefresh = new Button();
+        private readonly Button btnClose = new Button();
 
         private readonly TrainersController trainersController;
 
@@ -30,7 +33,8 @@ namespace Taymotive.Views
                 "trainers.json"
             );
 
-            trainersController = new TrainersController(filePath);
+            trainersController =
+                new TrainersController(filePath);
 
             InitializeComponents();
             LoadTrainers();
@@ -38,11 +42,11 @@ namespace Taymotive.Views
 
         private void InitializeComponents()
         {
-            this.Text = "TAYMOTIVE - Gestión de entrenadores";
-            this.Size = new Size(950, 570);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            Text = "TAYMOTIVE - Gestión de entrenadores";
+            ClientSize = new Size(950, 590);
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
             lblTitle.Text = "GESTIÓN DE ENTRENADORES";
             lblTitle.Font = new Font(
@@ -51,14 +55,14 @@ namespace Taymotive.Views
                 FontStyle.Bold
             );
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(240, 25);
+            lblTitle.Top = 25;
 
             lblTotal.Text = "Total de entrenadores: 0";
             lblTotal.Location = new Point(30, 85);
             lblTotal.AutoSize = true;
 
             dgvTrainers.Location = new Point(30, 120);
-            dgvTrainers.Size = new Size(870, 300);
+            dgvTrainers.Size = new Size(890, 310);
 
             dgvTrainers.ReadOnly = true;
             dgvTrainers.AllowUserToAddRows = false;
@@ -77,46 +81,55 @@ namespace Taymotive.Views
             dgvTrainers.Columns.Add("Age", "Edad");
             dgvTrainers.Columns.Add("Weight", "Peso (kg)");
             dgvTrainers.Columns.Add("Height", "Estatura (m)");
-            dgvTrainers.Columns.Add("Specialty", "Especialidad");
-
+            dgvTrainers.Columns.Add(
+                "Specialty", "Especialidad"
+            );
             dgvTrainers.Columns.Add(
                 "IsPersonalTrainer",
                 "Entrenador personal"
             );
 
             btnRegister.Text = "Registrar entrenador";
-            btnRegister.Location = new Point(25, 445);
+            btnRegister.Location = new Point(30, 455);
             btnRegister.Size = new Size(180, 40);
             btnRegister.Click += BtnRegister_Click;
 
             btnEdit.Text = "Modificar entrenador";
-            btnEdit.Location = new Point(215, 445);
+            btnEdit.Location = new Point(220, 455);
             btnEdit.Size = new Size(180, 40);
             btnEdit.Click += BtnEdit_Click;
 
             btnDelete.Text = "Eliminar entrenador";
-            btnDelete.Location = new Point(405, 445);
+            btnDelete.Location = new Point(410, 455);
             btnDelete.Size = new Size(180, 40);
             btnDelete.Click += BtnDelete_Click;
 
+            btnNotifications.Text = "Ver notificaciones";
+            btnNotifications.Location = new Point(600, 455);
+            btnNotifications.Size = new Size(180, 40);
+            btnNotifications.Click += BtnNotifications_Click;
+
             btnRefresh.Text = "Actualizar";
-            btnRefresh.Location = new Point(595, 445);
-            btnRefresh.Size = new Size(140, 40);
+            btnRefresh.Location = new Point(305, 515);
+            btnRefresh.Size = new Size(150, 40);
             btnRefresh.Click += BtnRefresh_Click;
 
             btnClose.Text = "Cerrar";
-            btnClose.Location = new Point(745, 445);
-            btnClose.Size = new Size(140, 40);
+            btnClose.Location = new Point(495, 515);
+            btnClose.Size = new Size(150, 40);
             btnClose.Click += BtnClose_Click;
 
-            this.Controls.Add(lblTitle);
-            this.Controls.Add(lblTotal);
-            this.Controls.Add(dgvTrainers);
-            this.Controls.Add(btnRegister);
-            this.Controls.Add(btnEdit);
-            this.Controls.Add(btnDelete);
-            this.Controls.Add(btnRefresh);
-            this.Controls.Add(btnClose);
+            Controls.Add(lblTitle);
+            Controls.Add(lblTotal);
+            Controls.Add(dgvTrainers);
+            Controls.Add(btnRegister);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
+            Controls.Add(btnNotifications);
+            Controls.Add(btnRefresh);
+            Controls.Add(btnClose);
+
+            CenterTitle();
         }
 
         // Cargar entrenadores desde JSON
@@ -126,9 +139,10 @@ namespace Taymotive.Views
             {
                 dgvTrainers.Rows.Clear();
 
-                var trainers = trainersController.GetTrainers();
+                var trainers =
+                    trainersController.GetTrainers();
 
-                foreach (var trainer in trainers)
+                foreach (Trainer trainer in trainers)
                 {
                     dgvTrainers.Rows.Add(
                         trainer.Id,
@@ -142,14 +156,16 @@ namespace Taymotive.Views
                 }
 
                 lblTotal.Text =
-                    "Total de entrenadores: " + trainers.Count;
+                    "Total de entrenadores: " +
+                    trainers.Count;
 
                 dgvTrainers.ClearSelection();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al cargar entrenadores: " + ex.Message,
+                    "Error al cargar entrenadores:\n" +
+                    ex.Message,
                     "TAYMOTIVE",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -157,15 +173,37 @@ namespace Taymotive.Views
             }
         }
 
+        // Obtener el entrenador seleccionado
+        private int? GetSelectedTrainerId()
+        {
+            if (dgvTrainers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione un entrenador primero.",
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return null;
+            }
+
+            return Convert.ToInt32(
+                dgvTrainers.SelectedRows[0]
+                    .Cells["Id"].Value
+            );
+        }
+
         // Registrar entrenador
         private void BtnRegister_Click(
             object? sender,
             EventArgs e)
         {
-            using (RegisterTrainerView registerView =
+            using (RegisterTrainerView view =
                 new RegisterTrainerView())
             {
-                if (registerView.ShowDialog(this) == DialogResult.OK)
+                if (view.ShowDialog(this) ==
+                    DialogResult.OK)
                 {
                     LoadTrainers();
                 }
@@ -177,26 +215,18 @@ namespace Taymotive.Views
             object? sender,
             EventArgs e)
         {
-            if (dgvTrainers.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione un entrenador para modificar.",
-                    "TAYMOTIVE",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+            int? trainerId = GetSelectedTrainerId();
 
+            if (!trainerId.HasValue)
+            {
                 return;
             }
 
-            int trainerId = Convert.ToInt32(
-                dgvTrainers.SelectedRows[0].Cells["Id"].Value
-            );
-
-            using (EditTrainerView editView =
-                new EditTrainerView(trainerId))
+            using (EditTrainerView view =
+                new EditTrainerView(trainerId.Value))
             {
-                if (editView.ShowDialog(this) == DialogResult.OK)
+                if (view.ShowDialog(this) ==
+                    DialogResult.OK)
                 {
                     LoadTrainers();
                 }
@@ -208,33 +238,27 @@ namespace Taymotive.Views
             object? sender,
             EventArgs e)
         {
-            if (dgvTrainers.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione un entrenador para eliminar.",
-                    "TAYMOTIVE",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+            int? trainerId = GetSelectedTrainerId();
 
+            if (!trainerId.HasValue)
+            {
                 return;
             }
 
-            int trainerId = Convert.ToInt32(
-                dgvTrainers.SelectedRows[0].Cells["Id"].Value
-            );
+            string trainerName =
+                Convert.ToString(
+                    dgvTrainers.SelectedRows[0]
+                        .Cells["Name"].Value
+                ) ?? string.Empty;
 
-            string trainerName = Convert.ToString(
-                dgvTrainers.SelectedRows[0].Cells["Name"].Value
-            ) ?? string.Empty;
-
-            DialogResult confirmation = MessageBox.Show(
-                "¿Está seguro de eliminar al entrenador " +
-                trainerName + "?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+            DialogResult confirmation =
+                MessageBox.Show(
+                    "¿Está seguro de eliminar al entrenador " +
+                    trainerName + "?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
 
             if (confirmation != DialogResult.Yes)
             {
@@ -244,7 +268,9 @@ namespace Taymotive.Views
             try
             {
                 bool deleted =
-                    trainersController.DeleteTrainer(trainerId);
+                    trainersController.DeleteTrainer(
+                        trainerId.Value
+                    );
 
                 if (deleted)
                 {
@@ -270,7 +296,57 @@ namespace Taymotive.Views
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al eliminar entrenador: " + ex.Message,
+                    "Error al eliminar entrenador:\n" +
+                    ex.Message,
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        // Ver notificaciones del entrenador
+        private void BtnNotifications_Click(
+            object? sender,
+            EventArgs e)
+        {
+            int? trainerId = GetSelectedTrainerId();
+
+            if (!trainerId.HasValue)
+            {
+                return;
+            }
+
+            try
+            {
+                Trainer? trainer =
+                    trainersController.GetTrainerById(
+                        trainerId.Value
+                    );
+
+                if (trainer == null)
+                {
+                    MessageBox.Show(
+                        "No se encontró el entrenador seleccionado.",
+                        "TAYMOTIVE",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    return;
+                }
+
+                using (TrainerNotificationsView view =
+                    new TrainerNotificationsView(trainer))
+                {
+                    view.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al abrir las notificaciones:\n" +
+                    ex.Message,
                     "TAYMOTIVE",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -291,7 +367,14 @@ namespace Taymotive.Views
             object? sender,
             EventArgs e)
         {
-            this.Close();
+            Close();
+        }
+
+        // Centrar título
+        private void CenterTitle()
+        {
+            lblTitle.Left =
+                (ClientSize.Width - lblTitle.Width) / 2;
         }
     }
 }

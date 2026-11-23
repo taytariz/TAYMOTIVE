@@ -25,6 +25,7 @@ namespace Taymotive.Views
         private readonly UsersController usersController;
         private readonly FitnessGoalsController goalsController;
         private readonly BadgesController badgesController;
+        private readonly MeasurementsController measurementsController;
         private readonly BadgeRulesController badgeRulesController;
 
         public VisitsView()
@@ -54,16 +55,25 @@ namespace Taymotive.Views
                 "badges.json"
             );
 
+            string measurementsPath = Path.Combine(
+                filesPath,
+                "measurements.json"
+            );
+
             visitsController = new VisitsController(visitsPath);
             usersController = new UsersController(usersPath);
             goalsController = new FitnessGoalsController(goalsPath);
             badgesController = new BadgesController(badgesPath);
 
+            measurementsController =
+                new MeasurementsController(measurementsPath);
+
             badgeRulesController = new BadgeRulesController(
                 badgesController,
                 visitsController,
                 goalsController,
-                usersController
+                usersController,
+                measurementsController
             );
 
             InitializeComponents();

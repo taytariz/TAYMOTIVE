@@ -13,6 +13,7 @@ namespace Taymotive.Views
     {
         private readonly ReportsController reportsController;
         private readonly UsersController usersController;
+        private readonly FitnessGoalsController goalsController;
 
         private readonly Label lblTitle = new Label();
         private readonly Label lblSummary = new Label();
@@ -27,23 +28,18 @@ namespace Taymotive.Views
 
         private readonly TabControl tabReports = new TabControl();
 
-        private readonly DataGridView dgvTopVisitors =
-            new DataGridView();
-
-        private readonly DataGridView dgvLeastVisitors =
-            new DataGridView();
-
-        private readonly DataGridView dgvClasses =
-            new DataGridView();
-
-        private readonly DataGridView dgvProgress =
-            new DataGridView();
+        private readonly DataGridView dgvTopVisitors = new DataGridView();
+        private readonly DataGridView dgvLeastVisitors = new DataGridView();
+        private readonly DataGridView dgvClasses = new DataGridView();
+        private readonly DataGridView dgvProgress = new DataGridView();
+        private readonly DataGridView dgvGoals = new DataGridView();
 
         private readonly ComboBox cmbUsers = new ComboBox();
 
         private readonly Label lblSelectUser = new Label();
         private readonly Label lblWeightChange = new Label();
         private readonly Label lblBMIChange = new Label();
+        private readonly Label lblGoalsSummary = new Label();
 
         public ReportsView()
         {
@@ -63,6 +59,10 @@ namespace Taymotive.Views
                 Path.Combine(filesPath, "users.json")
             );
 
+            goalsController = new FitnessGoalsController(
+                Path.Combine(filesPath, "fitnessgoals.json")
+            );
+
             InitializeComponents();
             LoadUsers();
             GenerateReports();
@@ -71,17 +71,12 @@ namespace Taymotive.Views
         private void InitializeComponents()
         {
             Text = "TAYMOTIVE - Reportes y estadísticas";
-
             Size = new Size(1050, 700);
             StartPosition = FormStartPosition.CenterScreen;
             MinimumSize = new Size(900, 600);
 
             lblTitle.Text = "REPORTES Y ESTADÍSTICAS";
-            lblTitle.Font = new Font(
-                "Arial",
-                20,
-                FontStyle.Bold
-            );
+            lblTitle.Font = new Font("Arial", 20, FontStyle.Bold);
             lblTitle.AutoSize = true;
             lblTitle.Location = new Point(300, 25);
 
@@ -126,11 +121,13 @@ namespace Taymotive.Views
             TabPage tabLeast = new TabPage("Top 10 ausentes");
             TabPage tabClasses = new TabPage("Visitas por clase");
             TabPage tabProgress = new TabPage("Progreso físico");
+            TabPage tabGoals = new TabPage("Objetivos físicos");
 
             ConfigureGrid(dgvTopVisitors);
             ConfigureGrid(dgvLeastVisitors);
             ConfigureGrid(dgvClasses);
             ConfigureGrid(dgvProgress);
+            ConfigureGrid(dgvGoals);
 
             dgvTopVisitors.Columns.Add("UserId", "ID");
             dgvTopVisitors.Columns.Add("UserName", "Usuario");
@@ -149,16 +146,25 @@ namespace Taymotive.Views
             dgvProgress.Columns.Add("Height", "Estatura (m)");
             dgvProgress.Columns.Add("BMI", "IMC");
 
+            dgvGoals.Columns.Add("Id", "ID");
+            dgvGoals.Columns.Add("User", "Usuario");
+            dgvGoals.Columns.Add("Goal", "Objetivo");
+            dgvGoals.Columns.Add("Progress", "Progreso (%)");
+            dgvGoals.Columns.Add("EndDate", "Fecha límite");
+            dgvGoals.Columns.Add("Status", "Estado");
+
             tabTop.Controls.Add(dgvTopVisitors);
             tabLeast.Controls.Add(dgvLeastVisitors);
             tabClasses.Controls.Add(dgvClasses);
 
             ConfigureProgressTab(tabProgress);
+            ConfigureGoalsTab(tabGoals);
 
             tabReports.TabPages.Add(tabTop);
             tabReports.TabPages.Add(tabLeast);
             tabReports.TabPages.Add(tabClasses);
             tabReports.TabPages.Add(tabProgress);
+            tabReports.TabPages.Add(tabGoals);
 
             btnClose.Text = "Cerrar";
             btnClose.Size = new Size(180, 40);
@@ -194,8 +200,6 @@ namespace Taymotive.Views
                 DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        // Organizar correctamente los controles
-        // de la pestaña Progreso físico.
         private void ConfigureProgressTab(TabPage tabProgress)
         {
             Panel panelHeader = new Panel();
@@ -218,30 +222,18 @@ namespace Taymotive.Views
             cmbUsers.SelectedIndexChanged +=
                 CmbUsers_SelectedIndexChanged;
 
-            lblWeightChange.Text =
-                "Variación de peso: --";
-
-            lblWeightChange.Location =
-                new Point(420, 15);
-
-            lblWeightChange.Size =
-                new Size(450, 30);
-
+            lblWeightChange.Text = "Variación de peso: --";
+            lblWeightChange.Location = new Point(420, 15);
+            lblWeightChange.Size = new Size(450, 30);
             lblWeightChange.Font = new Font(
                 "Arial",
                 10,
                 FontStyle.Bold
             );
 
-            lblBMIChange.Text =
-                "Variación de IMC: --";
-
-            lblBMIChange.Location =
-                new Point(420, 50);
-
-            lblBMIChange.Size =
-                new Size(450, 30);
-
+            lblBMIChange.Text = "Variación de IMC: --";
+            lblBMIChange.Location = new Point(420, 50);
+            lblBMIChange.Size = new Size(450, 30);
             lblBMIChange.Font = new Font(
                 "Arial",
                 10,
@@ -256,15 +248,42 @@ namespace Taymotive.Views
             Panel panelGrid = new Panel();
             panelGrid.Dock = DockStyle.Fill;
             panelGrid.Padding = new Padding(10);
-
             panelGrid.Controls.Add(dgvProgress);
 
-            // Primero el panel de datos.
             tabProgress.Controls.Add(panelGrid);
-
-            // Después el encabezado.
-            // Así ambos conservan su espacio.
             tabProgress.Controls.Add(panelHeader);
+        }
+
+        private void ConfigureGoalsTab(TabPage tabGoals)
+        {
+            Panel panelHeader = new Panel();
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Height = 75;
+            panelHeader.BackColor = Color.WhiteSmoke;
+
+            lblGoalsSummary.Text =
+                "Total: 0     Completados: 0     " +
+                "Pendientes: 0     Vencidos: 0";
+
+            lblGoalsSummary.Dock = DockStyle.Fill;
+            lblGoalsSummary.TextAlign =
+                ContentAlignment.MiddleCenter;
+
+            lblGoalsSummary.Font = new Font(
+                "Arial",
+                11,
+                FontStyle.Bold
+            );
+
+            panelHeader.Controls.Add(lblGoalsSummary);
+
+            Panel panelGrid = new Panel();
+            panelGrid.Dock = DockStyle.Fill;
+            panelGrid.Padding = new Padding(10);
+            panelGrid.Controls.Add(dgvGoals);
+
+            tabGoals.Controls.Add(panelGrid);
+            tabGoals.Controls.Add(panelHeader);
         }
 
         private void LoadUsers()
@@ -372,6 +391,7 @@ namespace Taymotive.Views
                 }
 
                 LoadProgress();
+                LoadGoals();
 
                 dgvTopVisitors.ClearSelection();
                 dgvLeastVisitors.ClearSelection();
@@ -429,8 +449,7 @@ namespace Taymotive.Views
 
             if (measurements.Count >= 2)
             {
-                double initialWeight =
-                    measurements[0].Weight;
+                double initialWeight = measurements[0].Weight;
 
                 double finalWeight =
                     measurements[measurements.Count - 1].Weight;
@@ -466,6 +485,74 @@ namespace Taymotive.Views
             }
 
             dgvProgress.ClearSelection();
+        }
+
+        private void LoadGoals()
+        {
+            dgvGoals.Rows.Clear();
+
+            var goals = goalsController.GetGoals();
+            var users = usersController.GetUsers();
+
+            int completed = goals.Count(
+                goal => goal.IsCompleted
+            );
+
+            int expired = goals.Count(
+                goal =>
+                    !goal.IsCompleted &&
+                    goal.EndDate.Date < DateTime.Today
+            );
+
+            int pending = goals.Count - completed - expired;
+
+            double completionPercentage =
+                goals.Count > 0
+                    ? (double)completed / goals.Count * 100
+                    : 0;
+
+            lblGoalsSummary.Text =
+                $"Total: {goals.Count}     " +
+                $"Completados: {completed}     " +
+                $"Pendientes: {pending}     " +
+                $"Vencidos: {expired}\n" +
+                $"Cumplimiento general: " +
+                $"{completionPercentage:F2}%";
+
+            foreach (var goal in goals.OrderBy(
+                goal => goal.EndDate
+            ))
+            {
+                string userName = users
+                    .FirstOrDefault(user => user.Id == goal.UserId)
+                    ?.Name ?? "Usuario no encontrado";
+
+                string status;
+
+                if (goal.IsCompleted)
+                {
+                    status = "Completado";
+                }
+                else if (goal.EndDate.Date < DateTime.Today)
+                {
+                    status = "Vencido";
+                }
+                else
+                {
+                    status = "Pendiente";
+                }
+
+                dgvGoals.Rows.Add(
+                    goal.Id,
+                    userName,
+                    goal.GoalType,
+                    goal.CalculateProgress().ToString("F2"),
+                    goal.EndDate.ToString("dd/MM/yyyy"),
+                    status
+                );
+            }
+
+            dgvGoals.ClearSelection();
         }
 
         private void CmbUsers_SelectedIndexChanged(

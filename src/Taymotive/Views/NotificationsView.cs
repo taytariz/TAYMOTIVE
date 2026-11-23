@@ -1,5 +1,5 @@
-
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -12,6 +12,9 @@ namespace Taymotive.Views
     {
         private readonly User currentUser;
 
+        private readonly NotificationsController
+            notificationsController;
+
         private readonly Label lblTitle = new Label();
         private readonly Label lblUser = new Label();
         private readonly Label lblTotal = new Label();
@@ -21,9 +24,6 @@ namespace Taymotive.Views
 
         private readonly Button btnRefresh = new Button();
         private readonly Button btnClose = new Button();
-
-        private readonly NotificationsController
-            notificationsController;
 
         public NotificationsView(User currentUser)
         {
@@ -66,20 +66,23 @@ namespace Taymotive.Views
         private void InitializeComponents()
         {
             Text = "TAYMOTIVE - Mis notificaciones";
-            ClientSize = new Size(850, 560);
+            ClientSize = new Size(1000, 580);
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
 
             lblTitle.Text = "MIS NOTIFICACIONES";
             lblTitle.Font = new Font(
-                "Arial", 20, FontStyle.Bold
+                "Arial",
+                20,
+                FontStyle.Bold
             );
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(245, 25);
+            lblTitle.Top = 25;
 
             lblUser.Text =
                 "Usuario: " + currentUser.Name;
+
             lblUser.Font = new Font("Arial", 11);
             lblUser.AutoSize = true;
             lblUser.Location = new Point(35, 95);
@@ -90,30 +93,39 @@ namespace Taymotive.Views
 
             lstNotifications.Location =
                 new Point(35, 165);
+
             lstNotifications.Size =
-                new Size(780, 310);
+                new Size(930, 320);
 
             lstNotifications.View = View.Details;
             lstNotifications.FullRowSelect = true;
             lstNotifications.GridLines = true;
             lstNotifications.MultiSelect = false;
+            lstNotifications.HideSelection = false;
 
             lstNotifications.Columns.Add(
-                "N.º", 60
+                "Fecha",
+                150
             );
 
             lstNotifications.Columns.Add(
-                "Notificación", 690
+                "Tipo",
+                130
+            );
+
+            lstNotifications.Columns.Add(
+                "Notificación",
+                620
             );
 
             btnRefresh.Text = "Actualizar";
-            btnRefresh.Location = new Point(230, 495);
-            btnRefresh.Size = new Size(170, 40);
+            btnRefresh.Location = new Point(340, 510);
+            btnRefresh.Size = new Size(140, 40);
             btnRefresh.Click += BtnRefresh_Click;
 
             btnClose.Text = "Cerrar";
-            btnClose.Location = new Point(450, 495);
-            btnClose.Size = new Size(170, 40);
+            btnClose.Location = new Point(520, 510);
+            btnClose.Size = new Size(140, 40);
             btnClose.Click += BtnClose_Click;
 
             Controls.Add(lblTitle);
@@ -122,34 +134,60 @@ namespace Taymotive.Views
             Controls.Add(lstNotifications);
             Controls.Add(btnRefresh);
             Controls.Add(btnClose);
+
+            CenterTitle();
         }
 
+        // Cargar timeline del usuario
         private void LoadNotifications()
         {
             try
             {
                 lstNotifications.Items.Clear();
 
-                var notifications =
+                List<Notification> notifications =
                     notificationsController
-                        .GetUserNotifications(
-                            currentUser.Id
-                        );
+                        .GetUserTimeline(currentUser.Id);
 
-                int number = 1;
-
-                foreach (string notification in notifications)
+                foreach (Notification notification
+                    in notifications)
                 {
                     ListViewItem item =
                         new ListViewItem(
-                            number.ToString()
+                            notification.Date.ToString(
+                                "dd/MM/yyyy HH:mm"
+                            )
                         );
 
-                    item.SubItems.Add(notification);
+                    item.SubItems.Add(
+                        notification.Type
+                    );
+
+                    item.SubItems.Add(
+                        notification.Message
+                    );
+
+                    // Diferenciar las notificaciones
+                    if (notification.Type.Equals(
+                        "Negativa",
+                        StringComparison.OrdinalIgnoreCase))
+                    {
+                        item.ForeColor = Color.DarkRed;
+                    }
+                    else if (notification.Type.Equals(
+                        "Positiva",
+                        StringComparison.OrdinalIgnoreCase))
+                    {
+                        item.ForeColor = Color.DarkGreen;
+                    }
+                    else if (notification.Type.Equals(
+                        "Descanso",
+                        StringComparison.OrdinalIgnoreCase))
+                    {
+                        item.ForeColor = Color.DarkOrange;
+                    }
 
                     lstNotifications.Items.Add(item);
-
-                    number++;
                 }
 
                 lblTotal.Text =
@@ -158,7 +196,7 @@ namespace Taymotive.Views
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al cargar notificaciones: " +
+                    "Error al cargar las notificaciones:\n" +
                     ex.Message,
                     "TAYMOTIVE",
                     MessageBoxButtons.OK,
@@ -167,6 +205,7 @@ namespace Taymotive.Views
             }
         }
 
+        // Actualizar notificaciones
         private void BtnRefresh_Click(
             object? sender,
             EventArgs e)
@@ -174,11 +213,19 @@ namespace Taymotive.Views
             LoadNotifications();
         }
 
+        // Cerrar ventana
         private void BtnClose_Click(
             object? sender,
             EventArgs e)
         {
             Close();
+        }
+
+        // Centrar el título
+        private void CenterTitle()
+        {
+            lblTitle.Left =
+                (ClientSize.Width - lblTitle.Width) / 2;
         }
     }
 }

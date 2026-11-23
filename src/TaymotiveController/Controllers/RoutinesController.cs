@@ -63,7 +63,8 @@ namespace TaymotiveController.Controllers
             DateTime startDate,
             DateTime endDate)
         {
-            if (string.IsNullOrWhiteSpace(name) ||
+            if (userId <= 0 ||
+                string.IsNullOrWhiteSpace(name) ||
                 duration <= 0 ||
                 endDate < startDate)
             {
@@ -162,6 +163,73 @@ namespace TaymotiveController.Controllers
 
             return false;
         }
+
+        // Asignar un entrenador a una rutina existente
+        public bool AssignTrainerToRoutine(
+            int routineId,
+            int trainerId)
+        {
+            if (routineId <= 0 || trainerId <= 0)
+            {
+                return false;
+            }
+
+            List<User> users = GetUsers();
+
+            Routine? routine = users
+                .SelectMany(user => user.Routines)
+                .FirstOrDefault(r => r.Id == routineId);
+
+            if (routine == null)
+            {
+                return false;
+            }
+
+            routine.TrainerId = trainerId;
+
+            fileHandler.Save(users);
+
+            return true;
+        }
+
+        // Obtener las rutinas de un entrenador
+        public List<Routine> GetRoutinesByTrainer(
+            int trainerId)
+        {
+            if (trainerId <= 0)
+            {
+                return new List<Routine>();
+            }
+
+            return GetRoutines()
+                .Where(routine =>
+                    routine.TrainerId == trainerId)
+                .OrderBy(routine => routine.EndDate)
+                .ToList();
+        }
+
+        // Obtener rutinas próximas a vencer
+        public List<Routine> GetExpiringRoutinesByTrainer(
+            int trainerId,
+            int daysBeforeExpiration = 7)
+        {
+            if (trainerId <= 0 ||
+                daysBeforeExpiration < 0)
+            {
+                return new List<Routine>();
+            }
+
+            DateTime today = DateTime.Today;
+
+            DateTime limitDate =
+                today.AddDays(daysBeforeExpiration);
+
+            return GetRoutinesByTrainer(trainerId)
+                .Where(routine =>
+                    routine.EndDate.Date >= today &&
+                    routine.EndDate.Date <= limitDate)
+                .OrderBy(routine => routine.EndDate)
+                .ToList();
+        }
     }
 }
-

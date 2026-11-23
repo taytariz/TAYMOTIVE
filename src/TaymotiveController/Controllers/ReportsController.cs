@@ -48,12 +48,14 @@ namespace TaymotiveController.Controllers
             };
         }
 
-        // Obtener los 10 usuarios con más visitas
+        // Obtener los 10 usuarios básicos con más visitas
         public List<UserVisitReport> GetTopVisitors(
             DateTime startDate,
             DateTime endDate)
         {
-            List<User> users = usersFile.Read();
+            List<User> users = usersFile.Read()
+                .Where(user => !user.IsAdmin)
+                .ToList();
 
             List<Visit> visits = GetVisitsByDate(
                 startDate,
@@ -75,12 +77,14 @@ namespace TaymotiveController.Controllers
                 .ToList();
         }
 
-        // Obtener los 10 usuarios con menos visitas
+        // Obtener los 10 usuarios básicos con menos visitas
         public List<UserVisitReport> GetLeastVisitors(
             DateTime startDate,
             DateTime endDate)
         {
-            List<User> users = usersFile.Read();
+            List<User> users = usersFile.Read()
+                .Where(user => !user.IsAdmin)
+                .ToList();
 
             List<Visit> visits = GetVisitsByDate(
                 startDate,

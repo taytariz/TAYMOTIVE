@@ -12,17 +12,20 @@ namespace TaymotiveController.Controllers
         private readonly VisitsController visitsController;
         private readonly FitnessGoalsController goalsController;
         private readonly UsersController? usersController;
+        private readonly MeasurementsController? measurementsController;
 
         public BadgeRulesController(
             BadgesController badgesController,
             VisitsController visitsController,
             FitnessGoalsController goalsController,
-            UsersController? usersController = null)
+            UsersController? usersController = null,
+            MeasurementsController? measurementsController = null)
         {
             this.badgesController = badgesController;
             this.visitsController = visitsController;
             this.goalsController = goalsController;
             this.usersController = usersController;
+            this.measurementsController = measurementsController;
         }
 
         // Evaluar las insignias de un usuario
@@ -46,10 +49,14 @@ namespace TaymotiveController.Controllers
 
                 if (user.IsAdmin)
                 {
-                    // Retirar insignia negativa anterior
                     RemoveBadgeIfExists(
                         userId,
                         "Baja asistencia"
+                    );
+
+                    RemoveBadgeIfExists(
+                        userId,
+                        "Progreso desactualizado"
                     );
 
                     return;
@@ -59,6 +66,7 @@ namespace TaymotiveController.Controllers
             EvaluateVisitBadges(userId);
             EvaluateGoalBadges(userId);
             EvaluateLowAttendanceBadge(userId);
+            EvaluateMeasurementBadge(userId);
         }
 
         // Evaluar insignias positivas por visitas
@@ -94,7 +102,6 @@ namespace TaymotiveController.Controllers
             List<FitnessGoal> goals =
                 goalsController.GetGoalsByUser(userId);
 
-            // Verificar objetivos completados
             bool completedGoal = goals.Any(
                 goal => goal.IsCompleted
             );
@@ -109,7 +116,6 @@ namespace TaymotiveController.Controllers
                 );
             }
 
-            // Verificar objetivos vencidos
             bool failedGoal = goals.Any(
                 goal =>
                     goal.EndDate.Date < DateTime.Today &&
@@ -146,10 +152,9 @@ namespace TaymotiveController.Controllers
                 .Where(user => !user.IsAdmin)
                 .ToList();
 
-            var visits = visitsController.GetVisits();
+            List<Visit> visits =
+                visitsController.GetVisits();
 
-            // Obtener los 10 usuarios normales
-            // con menor cantidad de visitas
             var lowestAttendanceUsers = users
                 .Select(user => new
                 {
@@ -186,8 +191,57 @@ namespace TaymotiveController.Controllers
             }
         }
 
-        // Eliminar insignias negativas que
-        // ya no corresponden al usuario
+        // Evaluar falta de actualización de mediciones
+        private void EvaluateMeasurementBadge(int userId)
+        {
+            if (measurementsController == null)
+            {
+                return;
+            }
+
+            List<Measurement> measurements =
+                measurementsController.GetMeasurementsByUser(
+                    userId
+                );
+
+            // No penalizar usuarios sin mediciones
+            if (measurements.Count == 0)
+            {
+                RemoveBadgeIfExists(
+                    userId,
+                    "Progreso desactualizado"
+                );
+
+                return;
+            }
+
+            DateTime lastMeasurementDate =
+                measurements[0].MeasurementDate.Date;
+
+            // La actualización se espera cada 30 días
+            DateTime nextMeasurementDate =
+                lastMeasurementDate.AddDays(30);
+
+            if (DateTime.Today > nextMeasurementDate)
+            {
+                badgesController.AwardBadge(
+                    userId,
+                    "Progreso desactualizado",
+                    "No ha actualizado sus mediciones " +
+                    "físicas dentro del período de 30 días.",
+                    "Negativa"
+                );
+            }
+            else
+            {
+                RemoveBadgeIfExists(
+                    userId,
+                    "Progreso desactualizado"
+                );
+            }
+        }
+
+        // Eliminar insignias que ya no corresponden
         private void RemoveBadgeIfExists(
             int userId,
             string badgeName)

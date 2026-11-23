@@ -29,8 +29,10 @@ namespace Taymotive.Views
         private readonly Button btnReports = new Button();
 
         // Botones del usuario
+        private readonly Button btnMyProfile = new Button();
         private readonly Button btnMySummary = new Button();
         private readonly Button btnMyRoutines = new Button();
+        private readonly Button btnRoutineProgress = new Button();
         private readonly Button btnMyGoals = new Button();
         private readonly Button btnMyBadges = new Button();
         private readonly Button btnMyMeasurements = new Button();
@@ -82,7 +84,7 @@ namespace Taymotive.Views
 
             ClientSize = isAdmin
                 ? new Size(650, 720)
-                : new Size(650, 790);
+                : new Size(650, 950);
 
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -321,48 +323,72 @@ namespace Taymotive.Views
             {
                 // MENÚ PERSONAL DEL USUARIO
 
-                // Nuevo botón: Mi resumen fitness
+                ConfigureButton(
+                    btnMyProfile,
+                    "Mi perfil",
+                    centerColumn,
+                    170
+                );
+
                 ConfigureButton(
                     btnMySummary,
                     "Mi resumen fitness",
                     centerColumn,
-                    170
+                    240
                 );
 
                 ConfigureButton(
                     btnMyRoutines,
                     "Mis rutinas",
                     centerColumn,
-                    240
+                    310
+                );
+
+                // NUEVO: Progreso de rutinas
+                ConfigureButton(
+                    btnRoutineProgress,
+                    "Mi progreso de rutinas",
+                    centerColumn,
+                    380
                 );
 
                 ConfigureButton(
                     btnMyGoals,
                     "Mis objetivos físicos",
                     centerColumn,
-                    310
+                    450
                 );
 
                 ConfigureButton(
                     btnMyBadges,
                     "Mis insignias y logros",
                     centerColumn,
-                    380
+                    520
                 );
 
                 ConfigureButton(
                     btnMyMeasurements,
                     "Mi progreso físico",
                     centerColumn,
-                    450
+                    590
                 );
 
                 ConfigureButton(
                     btnMyVisits,
                     "Mis visitas y clases",
                     centerColumn,
-                    520
+                    660
                 );
+
+                // Abrir perfil
+                btnMyProfile.Click += (sender, e) =>
+                {
+                    using (MyProfileView view =
+                        new MyProfileView(currentUser))
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
 
                 // Abrir resumen fitness
                 btnMySummary.Click += (sender, e) =>
@@ -379,6 +405,16 @@ namespace Taymotive.Views
                 {
                     using (MyRoutinesView view =
                         new MyRoutinesView(currentUser))
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                // Abrir progreso de rutinas
+                btnRoutineProgress.Click += (sender, e) =>
+                {
+                    using (RoutineProgressView view =
+                        new RoutineProgressView(currentUser))
                     {
                         view.ShowDialog(this);
                     }
@@ -424,8 +460,10 @@ namespace Taymotive.Views
                     }
                 };
 
+                Controls.Add(btnMyProfile);
                 Controls.Add(btnMySummary);
                 Controls.Add(btnMyRoutines);
+                Controls.Add(btnRoutineProgress);
                 Controls.Add(btnMyGoals);
                 Controls.Add(btnMyBadges);
                 Controls.Add(btnMyMeasurements);
@@ -438,7 +476,7 @@ namespace Taymotive.Views
                 btnNotifications,
                 "Mis notificaciones",
                 centerColumn,
-                isAdmin ? 505 : 590
+                isAdmin ? 505 : 730
             );
 
             btnNotifications.Paint +=
@@ -465,7 +503,7 @@ namespace Taymotive.Views
                 btnLogout,
                 "Cerrar sesión",
                 centerColumn,
-                isAdmin ? 585 : 660
+                isAdmin ? 585 : 800
             );
 
             btnLogout.Click += (sender, e) =>

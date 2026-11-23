@@ -1,9 +1,12 @@
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using TaymotiveController.Controllers;
+using TaymotiveModels.Models;
 
 namespace Taymotive.Views
 {
@@ -12,25 +15,33 @@ namespace Taymotive.Views
         private readonly Label lblTitle = new Label();
         private readonly Label lblTotal = new Label();
 
-        private readonly DataGridView dgvRoutines = new DataGridView();
+        private readonly DataGridView dgvRoutines =
+            new DataGridView();
 
         private readonly Button btnRegister = new Button();
         private readonly Button btnEdit = new Button();
         private readonly Button btnDelete = new Button();
+        private readonly Button btnAssign = new Button();
         private readonly Button btnRefresh = new Button();
         private readonly Button btnClose = new Button();
 
         private readonly RoutinesController routinesController;
+        private readonly TrainersController trainersController;
 
         public RoutinesView()
         {
-            string filePath = Path.Combine(
+            string filesPath = Path.Combine(
                 Directory.GetCurrentDirectory(),
-                "Files",
-                "users.json"
+                "Files"
             );
 
-            routinesController = new RoutinesController(filePath);
+            routinesController = new RoutinesController(
+                Path.Combine(filesPath, "users.json")
+            );
+
+            trainersController = new TrainersController(
+                Path.Combine(filesPath, "trainers.json")
+            );
 
             InitializeComponents();
             LoadRoutines();
@@ -38,11 +49,11 @@ namespace Taymotive.Views
 
         private void InitializeComponents()
         {
-            this.Text = "TAYMOTIVE - Gestión de rutinas";
-            this.Size = new Size(1050, 600);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            Text = "TAYMOTIVE - Gestión de rutinas";
+            ClientSize = new Size(1150, 610);
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
             lblTitle.Text = "GESTIÓN DE RUTINAS";
             lblTitle.Font = new Font(
@@ -51,14 +62,14 @@ namespace Taymotive.Views
                 FontStyle.Bold
             );
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(350, 25);
+            lblTitle.Top = 25;
 
             lblTotal.Text = "Total de rutinas: 0";
             lblTotal.Location = new Point(30, 90);
             lblTotal.AutoSize = true;
 
             dgvRoutines.Location = new Point(30, 125);
-            dgvRoutines.Size = new Size(970, 330);
+            dgvRoutines.Size = new Size(1090, 340);
             dgvRoutines.ReadOnly = true;
             dgvRoutines.AllowUserToAddRows = false;
             dgvRoutines.AllowUserToDeleteRows = false;
@@ -74,69 +85,106 @@ namespace Taymotive.Views
             dgvRoutines.Columns.Add("Id", "ID");
             dgvRoutines.Columns.Add("User", "Usuario");
             dgvRoutines.Columns.Add("Name", "Rutina");
-            dgvRoutines.Columns.Add("Description", "Descripción");
-            dgvRoutines.Columns.Add("Duration", "Duración (min)");
-            dgvRoutines.Columns.Add("StartDate", "Fecha inicio");
-            dgvRoutines.Columns.Add("EndDate", "Fecha fin");
+            dgvRoutines.Columns.Add(
+                "Description", "Descripción"
+            );
+            dgvRoutines.Columns.Add(
+                "Duration", "Duración (min)"
+            );
+            dgvRoutines.Columns.Add(
+                "StartDate", "Fecha inicio"
+            );
+            dgvRoutines.Columns.Add(
+                "EndDate", "Fecha fin"
+            );
+            dgvRoutines.Columns.Add(
+                "Trainer", "Entrenador"
+            );
 
             btnRegister.Text = "Registrar rutina";
-            btnRegister.Location = new Point(45, 485);
-            btnRegister.Size = new Size(180, 40);
+            ConfigureButton(btnRegister, 30);
             btnRegister.Click += BtnRegister_Click;
 
             btnEdit.Text = "Modificar rutina";
-            btnEdit.Location = new Point(235, 485);
-            btnEdit.Size = new Size(180, 40);
+            ConfigureButton(btnEdit, 215);
             btnEdit.Click += BtnEdit_Click;
 
             btnDelete.Text = "Eliminar rutina";
-            btnDelete.Location = new Point(425, 485);
-            btnDelete.Size = new Size(180, 40);
+            ConfigureButton(btnDelete, 400);
             btnDelete.Click += BtnDelete_Click;
 
+            btnAssign.Text = "Asignar entrenador";
+            ConfigureButton(btnAssign, 585);
+            btnAssign.Click += BtnAssign_Click;
+
             btnRefresh.Text = "Actualizar";
-            btnRefresh.Location = new Point(615, 485);
-            btnRefresh.Size = new Size(160, 40);
+            ConfigureButton(btnRefresh, 770);
             btnRefresh.Click += BtnRefresh_Click;
 
             btnClose.Text = "Cerrar";
-            btnClose.Location = new Point(785, 485);
-            btnClose.Size = new Size(160, 40);
+            ConfigureButton(btnClose, 955);
             btnClose.Click += BtnClose_Click;
 
-            this.Controls.Add(lblTitle);
-            this.Controls.Add(lblTotal);
-            this.Controls.Add(dgvRoutines);
-            this.Controls.Add(btnRegister);
-            this.Controls.Add(btnEdit);
-            this.Controls.Add(btnDelete);
-            this.Controls.Add(btnRefresh);
-            this.Controls.Add(btnClose);
+            Controls.Add(lblTitle);
+            Controls.Add(lblTotal);
+            Controls.Add(dgvRoutines);
+            Controls.Add(btnRegister);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
+            Controls.Add(btnAssign);
+            Controls.Add(btnRefresh);
+            Controls.Add(btnClose);
+
+            CenterTitle();
         }
 
-        // Cargar rutinas desde users.json
+        private void ConfigureButton(Button button, int x)
+        {
+            button.Location = new Point(x, 500);
+            button.Size = new Size(165, 42);
+        }
+
+        // Cargar rutinas y entrenadores
         private void LoadRoutines()
         {
             try
             {
                 dgvRoutines.Rows.Clear();
 
-                var users = routinesController.GetUsers();
+                List<User> users =
+                    routinesController.GetUsers();
+
+                List<Trainer> trainers =
+                    trainersController.GetTrainers();
 
                 int totalRoutines = 0;
 
-                foreach (var user in users)
+                foreach (User user in users)
                 {
-                    foreach (var routine in user.Routines)
+                    foreach (Routine routine in user.Routines)
                     {
+                        Trainer? trainer = trainers
+                            .FirstOrDefault(item =>
+                                item.Id == routine.TrainerId
+                            );
+
+                        string trainerName = trainer == null
+                            ? "Sin asignar"
+                            : trainer.Name;
+
                         dgvRoutines.Rows.Add(
                             routine.Id,
                             user.Name,
                             routine.Name,
                             routine.Description,
                             routine.Duration,
-                            routine.StartDate.ToString("dd/MM/yyyy"),
-                            routine.EndDate.ToString("dd/MM/yyyy")
+                            routine.StartDate.ToString(
+                                "dd/MM/yyyy"
+                            ),
+                            routine.EndDate.ToString(
+                                "dd/MM/yyyy"
+                            ),
+                            trainerName
                         );
 
                         totalRoutines++;
@@ -151,7 +199,8 @@ namespace Taymotive.Views
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al cargar las rutinas: " + ex.Message,
+                    "Error al cargar las rutinas:\n" +
+                    ex.Message,
                     "TAYMOTIVE",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -160,12 +209,15 @@ namespace Taymotive.Views
         }
 
         // Registrar rutina
-        private void BtnRegister_Click(object? sender, EventArgs e)
+        private void BtnRegister_Click(
+            object? sender,
+            EventArgs e)
         {
-            using (RegisterRoutineView registerView =
+            using (RegisterRoutineView view =
                 new RegisterRoutineView())
             {
-                if (registerView.ShowDialog(this) == DialogResult.OK)
+                if (view.ShowDialog(this) ==
+                    DialogResult.OK)
                 {
                     LoadRoutines();
                 }
@@ -173,28 +225,22 @@ namespace Taymotive.Views
         }
 
         // Modificar rutina
-        private void BtnEdit_Click(object? sender, EventArgs e)
+        private void BtnEdit_Click(
+            object? sender,
+            EventArgs e)
         {
-            if (dgvRoutines.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione una rutina para modificar.",
-                    "TAYMOTIVE",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+            int? routineId = GetSelectedRoutineId();
 
+            if (!routineId.HasValue)
+            {
                 return;
             }
 
-            int routineId = Convert.ToInt32(
-                dgvRoutines.SelectedRows[0].Cells["Id"].Value
-            );
-
-            using (EditRoutineView editView =
-                new EditRoutineView(routineId))
+            using (EditRoutineView view =
+                new EditRoutineView(routineId.Value))
             {
-                if (editView.ShowDialog(this) == DialogResult.OK)
+                if (view.ShowDialog(this) ==
+                    DialogResult.OK)
                 {
                     LoadRoutines();
                 }
@@ -202,35 +248,31 @@ namespace Taymotive.Views
         }
 
         // Eliminar rutina
-        private void BtnDelete_Click(object? sender, EventArgs e)
+        private void BtnDelete_Click(
+            object? sender,
+            EventArgs e)
         {
-            if (dgvRoutines.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione una rutina para eliminar.",
-                    "TAYMOTIVE",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+            int? routineId = GetSelectedRoutineId();
 
+            if (!routineId.HasValue)
+            {
                 return;
             }
 
-            int routineId = Convert.ToInt32(
-                dgvRoutines.SelectedRows[0].Cells["Id"].Value
-            );
+            string routineName =
+                Convert.ToString(
+                    dgvRoutines.SelectedRows[0]
+                        .Cells["Name"].Value
+                ) ?? string.Empty;
 
-            string routineName = Convert.ToString(
-                dgvRoutines.SelectedRows[0].Cells["Name"].Value
-            ) ?? string.Empty;
-
-            DialogResult confirmation = MessageBox.Show(
-                "¿Está seguro de eliminar la rutina " +
-                routineName + "?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+            DialogResult confirmation =
+                MessageBox.Show(
+                    "¿Está seguro de eliminar la rutina " +
+                    routineName + "?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
 
             if (confirmation != DialogResult.Yes)
             {
@@ -240,7 +282,9 @@ namespace Taymotive.Views
             try
             {
                 bool deleted =
-                    routinesController.DeleteRoutine(routineId);
+                    routinesController.DeleteRoutine(
+                        routineId.Value
+                    );
 
                 if (deleted)
                 {
@@ -266,7 +310,8 @@ namespace Taymotive.Views
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al eliminar la rutina: " + ex.Message,
+                    "Error al eliminar la rutina:\n" +
+                    ex.Message,
                     "TAYMOTIVE",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -274,16 +319,197 @@ namespace Taymotive.Views
             }
         }
 
+        // Asignar entrenador
+        private void BtnAssign_Click(
+            object? sender,
+            EventArgs e)
+        {
+            int? routineId = GetSelectedRoutineId();
+
+            if (!routineId.HasValue)
+            {
+                return;
+            }
+
+            try
+            {
+                List<Trainer> trainers =
+                    trainersController.GetTrainers();
+
+                if (trainers.Count == 0)
+                {
+                    MessageBox.Show(
+                        "No existen entrenadores registrados.",
+                        "TAYMOTIVE",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    return;
+                }
+
+                using (Form dialog = new Form())
+                {
+                    dialog.Text = "Asignar entrenador";
+                    dialog.ClientSize = new Size(420, 200);
+                    dialog.StartPosition =
+                        FormStartPosition.CenterParent;
+                    dialog.FormBorderStyle =
+                        FormBorderStyle.FixedDialog;
+                    dialog.MaximizeBox = false;
+                    dialog.MinimizeBox = false;
+
+                    Label lblTrainer = new Label();
+                    lblTrainer.Text =
+                        "Seleccione el entrenador:";
+                    lblTrainer.Location =
+                        new Point(30, 30);
+                    lblTrainer.AutoSize = true;
+
+                    ComboBox cmbTrainers = new ComboBox();
+                    cmbTrainers.Location =
+                        new Point(30, 65);
+                    cmbTrainers.Size = new Size(350, 30);
+                    cmbTrainers.DropDownStyle =
+                        ComboBoxStyle.DropDownList;
+
+                    cmbTrainers.DataSource = trainers;
+                    cmbTrainers.DisplayMember = "Name";
+                    cmbTrainers.ValueMember = "Id";
+
+                    Routine? selectedRoutine =
+                        routinesController.GetRoutineById(
+                            routineId.Value
+                        );
+
+                    if (selectedRoutine != null &&
+                        selectedRoutine.TrainerId > 0)
+                    {
+                        cmbTrainers.SelectedValue =
+                            selectedRoutine.TrainerId;
+                    }
+
+                    Button btnSave = new Button();
+                    btnSave.Text = "Guardar";
+                    btnSave.Location =
+                        new Point(80, 125);
+                    btnSave.Size = new Size(120, 40);
+
+                    Button btnCancel = new Button();
+                    btnCancel.Text = "Cancelar";
+                    btnCancel.Location =
+                        new Point(220, 125);
+                    btnCancel.Size = new Size(120, 40);
+                    btnCancel.DialogResult =
+                        DialogResult.Cancel;
+
+                    btnSave.Click += (s, args) =>
+                    {
+                        if (cmbTrainers.SelectedItem
+                            is not Trainer trainer)
+                        {
+                            return;
+                        }
+
+                        bool assigned =
+                            routinesController
+                                .AssignTrainerToRoutine(
+                                    routineId.Value,
+                                    trainer.Id
+                                );
+
+                        if (assigned)
+                        {
+                            MessageBox.Show(
+                                "Entrenador asignado correctamente.",
+                                "TAYMOTIVE",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information
+                            );
+
+                            dialog.DialogResult =
+                                DialogResult.OK;
+
+                            dialog.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                                "No se pudo asignar el entrenador.",
+                                "TAYMOTIVE",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning
+                            );
+                        }
+                    };
+
+                    dialog.Controls.Add(lblTrainer);
+                    dialog.Controls.Add(cmbTrainers);
+                    dialog.Controls.Add(btnSave);
+                    dialog.Controls.Add(btnCancel);
+                    dialog.CancelButton = btnCancel;
+
+                    if (dialog.ShowDialog(this) ==
+                        DialogResult.OK)
+                    {
+                        LoadRoutines();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al asignar entrenador:\n" +
+                    ex.Message,
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        // Obtener rutina seleccionada
+        private int? GetSelectedRoutineId()
+        {
+            if (dgvRoutines.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione una rutina primero.",
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return null;
+            }
+
+            return Convert.ToInt32(
+                dgvRoutines.SelectedRows[0]
+                    .Cells["Id"].Value
+            );
+        }
+
         // Actualizar tabla
-        private void BtnRefresh_Click(object? sender, EventArgs e)
+        private void BtnRefresh_Click(
+            object? sender,
+            EventArgs e)
         {
             LoadRoutines();
         }
 
         // Cerrar ventana
-        private void BtnClose_Click(object? sender, EventArgs e)
+        private void BtnClose_Click(
+            object? sender,
+            EventArgs e)
         {
-            this.Close();
+            Close();
+        }
+
+        // Centrar título
+        private void CenterTitle()
+        {
+            lblTitle.Left =
+                (ClientSize.Width - lblTitle.Width) / 2;
         }
     }
 }

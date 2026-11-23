@@ -37,32 +37,46 @@ namespace TaymotiveController.Controllers
 
             foreach (User user in users)
             {
-                if (string.Equals(
+                if (!string.Equals(
                     user.Username,
                     username.Trim(),
                     StringComparison.OrdinalIgnoreCase))
                 {
-                    if (string.IsNullOrWhiteSpace(user.Password))
-                    {
-                        return false;
-                    }
+                    continue;
+                }
 
-                    bool validPassword =
-                        PasswordHelper.VerifyPassword(
-                            password,
-                            user.Password
-                        );
-
-                    if (validPassword)
-                    {
-                        // Conservar el usuario autenticado
-                        CurrentUser = user;
-
-                        return true;
-                    }
-
+                // Las cuentas sin contraseña
+                // todavía no pueden iniciar sesión
+                if (string.IsNullOrWhiteSpace(user.Password))
+                {
                     return false;
                 }
+
+                // Compatibilidad con cuentas existentes
+                bool accountEnabled =
+                    user.IsActivated ||
+                    !string.IsNullOrWhiteSpace(user.Password);
+
+                if (!accountEnabled)
+                {
+                    return false;
+                }
+
+                bool validPassword =
+                    PasswordHelper.VerifyPassword(
+                        password,
+                        user.Password
+                    );
+
+                if (!validPassword)
+                {
+                    return false;
+                }
+
+                // Conservar el usuario autenticado
+                CurrentUser = user;
+
+                return true;
             }
 
             return false;

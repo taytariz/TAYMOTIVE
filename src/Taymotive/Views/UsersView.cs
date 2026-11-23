@@ -13,17 +13,17 @@ namespace Taymotive.Views
         private readonly User currentUser;
         private readonly UsersController usersController;
 
-        private Label lblTitle = new Label();
-        private Label lblTotal = new Label();
+        private readonly Label lblTitle = new Label();
+        private readonly Label lblTotal = new Label();
 
-        private DataGridView dgvUsers = new DataGridView();
+        private readonly DataGridView dgvUsers = new DataGridView();
 
-        private Button btnRegister = new Button();
-        private Button btnEdit = new Button();
-        private Button btnDelete = new Button();
-        private Button btnRefresh = new Button();
-        private Button btnClose = new Button();
-        private Button btnActivation = new Button();
+        private readonly Button btnRegister = new Button();
+        private readonly Button btnEdit = new Button();
+        private readonly Button btnDelete = new Button();
+        private readonly Button btnRefresh = new Button();
+        private readonly Button btnClose = new Button();
+        private readonly Button btnActivation = new Button();
 
         public UsersView(User currentUser)
         {

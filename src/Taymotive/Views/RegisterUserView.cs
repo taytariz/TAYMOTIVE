@@ -10,19 +10,19 @@ namespace Taymotive.Views
 {
     public class RegisterUserView : Form
     {
-        private Label lblTitle = new Label();
+        private readonly Label lblTitle = new Label();
 
-        private TextBox txtName = new TextBox();
-        private TextBox txtUsername = new TextBox();
-        private TextBox txtPassword = new TextBox();
-        private TextBox txtGoal = new TextBox();
+        private readonly TextBox txtName = new TextBox();
+        private readonly TextBox txtUsername = new TextBox();
+        private readonly TextBox txtPassword = new TextBox();
+        private readonly TextBox txtGoal = new TextBox();
 
-        private NumericUpDown numAge = new NumericUpDown();
-        private NumericUpDown numWeight = new NumericUpDown();
-        private NumericUpDown numHeight = new NumericUpDown();
+        private readonly NumericUpDown numAge = new NumericUpDown();
+        private readonly NumericUpDown numWeight = new NumericUpDown();
+        private readonly NumericUpDown numHeight = new NumericUpDown();
 
-        private Button btnSave = new Button();
-        private Button btnCancel = new Button();
+        private readonly Button btnSave = new Button();
+        private readonly Button btnCancel = new Button();
 
         private readonly UsersController usersController;
 

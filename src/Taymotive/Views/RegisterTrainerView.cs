@@ -9,19 +9,19 @@ namespace Taymotive.Views
 {
     public class RegisterTrainerView : Form
     {
-        private Label lblTitle = new Label();
+        private readonly Label lblTitle = new Label();
 
-        private TextBox txtName = new TextBox();
+        private readonly TextBox txtName = new TextBox();
 
-        private NumericUpDown numAge = new NumericUpDown();
-        private NumericUpDown numWeight = new NumericUpDown();
-        private NumericUpDown numHeight = new NumericUpDown();
+        private readonly NumericUpDown numAge = new NumericUpDown();
+        private readonly NumericUpDown numWeight = new NumericUpDown();
+        private readonly NumericUpDown numHeight = new NumericUpDown();
 
-        private ComboBox cmbSpecialty = new ComboBox();
-        private CheckBox chkPersonalTrainer = new CheckBox();
+        private readonly ComboBox cmbSpecialty = new ComboBox();
+        private readonly CheckBox chkPersonalTrainer = new CheckBox();
 
-        private Button btnSave = new Button();
-        private Button btnCancel = new Button();
+        private readonly Button btnSave = new Button();
+        private readonly Button btnCancel = new Button();
 
         private readonly TrainersController trainersController;
 

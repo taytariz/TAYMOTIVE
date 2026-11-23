@@ -1,0 +1,402 @@
+[
+  {
+    "Specialty": "Musculacion",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 1,
+    "Name": "Entrenador Demostracion 01",
+    "Age": 26,
+    "Weight": 66,
+    "Height": 1.66
+  },
+  {
+    "Specialty": "CrossFit",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 2,
+    "Name": "Entrenador Demostracion 02",
+    "Age": 27,
+    "Weight": 67,
+    "Height": 1.67
+  },
+  {
+    "Specialty": "Yoga",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 3,
+    "Name": "Entrenador Demostracion 03",
+    "Age": 28,
+    "Weight": 68,
+    "Height": 1.68
+  },
+  {
+    "Specialty": "Spinning",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 4,
+    "Name": "Entrenador Demostracion 04",
+    "Age": 29,
+    "Weight": 69,
+    "Height": 1.69
+  },
+  {
+    "Specialty": "Entrenamiento funcional",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 5,
+    "Name": "Entrenador Demostracion 05",
+    "Age": 30,
+    "Weight": 70,
+    "Height": 1.7
+  },
+  {
+    "Specialty": "Musculacion",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 6,
+    "Name": "Entrenador Demostracion 06",
+    "Age": 31,
+    "Weight": 71,
+    "Height": 1.71
+  },
+  {
+    "Specialty": "CrossFit",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 7,
+    "Name": "Entrenador Demostracion 07",
+    "Age": 32,
+    "Weight": 72,
+    "Height": 1.72
+  },
+  {
+    "Specialty": "Yoga",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 8,
+    "Name": "Entrenador Demostracion 08",
+    "Age": 33,
+    "Weight": 73,
+    "Height": 1.73
+  },
+  {
+    "Specialty": "Spinning",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 9,
+    "Name": "Entrenador Demostracion 09",
+    "Age": 34,
+    "Weight": 74,
+    "Height": 1.74
+  },
+  {
+    "Specialty": "Entrenamiento funcional",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 10,
+    "Name": "Entrenador Demostracion 10",
+    "Age": 35,
+    "Weight": 75,
+    "Height": 1.75
+  },
+  {
+    "Specialty": "Musculacion",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 11,
+    "Name": "Entrenador Demostracion 11",
+    "Age": 36,
+    "Weight": 76,
+    "Height": 1.76
+  },
+  {
+    "Specialty": "CrossFit",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 12,
+    "Name": "Entrenador Demostracion 12",
+    "Age": 37,
+    "Weight": 77,
+    "Height": 1.77
+  },
+  {
+    "Specialty": "Yoga",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 13,
+    "Name": "Entrenador Demostracion 13",
+    "Age": 38,
+    "Weight": 78,
+    "Height": 1.7799999999999998
+  },
+  {
+    "Specialty": "Spinning",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 14,
+    "Name": "Entrenador Demostracion 14",
+    "Age": 39,
+    "Weight": 79,
+    "Height": 1.79
+  },
+  {
+    "Specialty": "Entrenamiento funcional",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 15,
+    "Name": "Entrenador Demostracion 15",
+    "Age": 40,
+    "Weight": 80,
+    "Height": 1.7999999999999998
+  },
+  {
+    "Specialty": "Musculacion",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 16,
+    "Name": "Entrenador Demostracion 16",
+    "Age": 41,
+    "Weight": 81,
+    "Height": 1.8099999999999998
+  },
+  {
+    "Specialty": "CrossFit",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 17,
+    "Name": "Entrenador Demostracion 17",
+    "Age": 42,
+    "Weight": 82,
+    "Height": 1.8199999999999998
+  },
+  {
+    "Specialty": "Yoga",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 18,
+    "Name": "Entrenador Demostracion 18",
+    "Age": 43,
+    "Weight": 83,
+    "Height": 1.8299999999999998
+  },
+  {
+    "Specialty": "Spinning",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 19,
+    "Name": "Entrenador Demostracion 19",
+    "Age": 44,
+    "Weight": 84,
+    "Height": 1.8399999999999999
+  },
+  {
+    "Specialty": "Entrenamiento funcional",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 20,
+    "Name": "Entrenador Demostracion 20",
+    "Age": 45,
+    "Weight": 85,
+    "Height": 1.65
+  },
+  {
+    "Specialty": "Musculacion",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 21,
+    "Name": "Entrenador Demostracion 21",
+    "Age": 46,
+    "Weight": 86,
+    "Height": 1.66
+  },
+  {
+    "Specialty": "CrossFit",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 22,
+    "Name": "Entrenador Demostracion 22",
+    "Age": 47,
+    "Weight": 87,
+    "Height": 1.67
+  },
+  {
+    "Specialty": "Yoga",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 23,
+    "Name": "Entrenador Demostracion 23",
+    "Age": 48,
+    "Weight": 88,
+    "Height": 1.68
+  },
+  {
+    "Specialty": "Spinning",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 24,
+    "Name": "Entrenador Demostracion 24",
+    "Age": 49,
+    "Weight": 89,
+    "Height": 1.69
+  },
+  {
+    "Specialty": "Entrenamiento funcional",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 25,
+    "Name": "Entrenador Demostracion 25",
+    "Age": 25,
+    "Weight": 65,
+    "Height": 1.7
+  },
+  {
+    "Specialty": "Musculacion",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 26,
+    "Name": "Entrenador Demostracion 26",
+    "Age": 26,
+    "Weight": 66,
+    "Height": 1.71
+  },
+  {
+    "Specialty": "CrossFit",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 27,
+    "Name": "Entrenador Demostracion 27",
+    "Age": 27,
+    "Weight": 67,
+    "Height": 1.72
+  },
+  {
+    "Specialty": "Yoga",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 28,
+    "Name": "Entrenador Demostracion 28",
+    "Age": 28,
+    "Weight": 68,
+    "Height": 1.73
+  },
+  {
+    "Specialty": "Spinning",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 29,
+    "Name": "Entrenador Demostracion 29",
+    "Age": 29,
+    "Weight": 69,
+    "Height": 1.74
+  },
+  {
+    "Specialty": "Entrenamiento funcional",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 30,
+    "Name": "Entrenador Demostracion 30",
+    "Age": 30,
+    "Weight": 70,
+    "Height": 1.75
+  },
+  {
+    "Specialty": "Musculacion",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 31,
+    "Name": "Entrenador Demostracion 31",
+    "Age": 31,
+    "Weight": 71,
+    "Height": 1.76
+  },
+  {
+    "Specialty": "CrossFit",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 32,
+    "Name": "Entrenador Demostracion 32",
+    "Age": 32,
+    "Weight": 72,
+    "Height": 1.77
+  },
+  {
+    "Specialty": "Yoga",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 33,
+    "Name": "Entrenador Demostracion 33",
+    "Age": 33,
+    "Weight": 73,
+    "Height": 1.7799999999999998
+  },
+  {
+    "Specialty": "Spinning",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 34,
+    "Name": "Entrenador Demostracion 34",
+    "Age": 34,
+    "Weight": 74,
+    "Height": 1.79
+  },
+  {
+    "Specialty": "Entrenamiento funcional",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 35,
+    "Name": "Entrenador Demostracion 35",
+    "Age": 35,
+    "Weight": 75,
+    "Height": 1.7999999999999998
+  },
+  {
+    "Specialty": "Musculacion",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 36,
+    "Name": "Entrenador Demostracion 36",
+    "Age": 36,
+    "Weight": 76,
+    "Height": 1.8099999999999998
+  },
+  {
+    "Specialty": "CrossFit",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 37,
+    "Name": "Entrenador Demostracion 37",
+    "Age": 37,
+    "Weight": 77,
+    "Height": 1.8199999999999998
+  },
+  {
+    "Specialty": "Yoga",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 38,
+    "Name": "Entrenador Demostracion 38",
+    "Age": 38,
+    "Weight": 78,
+    "Height": 1.8299999999999998
+  },
+  {
+    "Specialty": "Spinning",
+    "IsPersonalTrainer": false,
+    "AssignedRoutines": [],
+    "Id": 39,
+    "Name": "Entrenador Demostracion 39",
+    "Age": 39,
+    "Weight": 79,
+    "Height": 1.8399999999999999
+  },
+  {
+    "Specialty": "Entrenamiento funcional",
+    "IsPersonalTrainer": true,
+    "AssignedRoutines": [],
+    "Id": 40,
+    "Name": "Entrenador Demostracion 40",
+    "Age": 40,
+    "Weight": 80,
+    "Height": 1.65
+  }
+]

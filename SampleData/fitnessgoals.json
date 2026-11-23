@@ -1,0 +1,46 @@
+[
+  {
+    "Id": 1,
+    "UserId": 1,
+    "GoalType": "Ganar musculatura",
+    "InitialValue": 61,
+    "TargetValue": 70,
+    "CurrentValue": 70,
+    "StartDate": "2026-11-22T12:52:11.2539221-06:00",
+    "EndDate": "2027-02-22T00:00:00",
+    "IsCompleted": true
+  },
+  {
+    "Id": 2,
+    "UserId": 1,
+    "GoalType": "Aumentar visitas",
+    "InitialValue": 0,
+    "TargetValue": 5,
+    "CurrentValue": 1,
+    "StartDate": "2026-11-01T13:27:17.711",
+    "EndDate": "2026-11-30T00:00:00",
+    "IsCompleted": false
+  },
+  {
+    "Id": 3,
+    "UserId": 2,
+    "GoalType": "Ganar musculatura",
+    "InitialValue": 60,
+    "TargetValue": 70,
+    "CurrentValue": 70,
+    "StartDate": "2026-10-01T21:55:17.739",
+    "EndDate": "2026-11-15T00:00:00",
+    "IsCompleted": true
+  },
+  {
+    "Id": 4,
+    "UserId": 2,
+    "GoalType": "Aumentar visitas",
+    "InitialValue": 0,
+    "TargetValue": 10,
+    "CurrentValue": 0,
+    "StartDate": "2026-11-23T00:15:07.3239263-06:00",
+    "EndDate": "2026-12-23T00:00:00-06:00",
+    "IsCompleted": false
+  }
+]

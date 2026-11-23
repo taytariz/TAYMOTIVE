@@ -1,0 +1,466 @@
+[
+  {
+    "Id": 1,
+    "UserId": 1,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.2857707-06:00"
+  },
+  {
+    "Id": 2,
+    "UserId": 1,
+    "Name": "Meta cumplida",
+    "Description": "Complet\u00F3 al menos un objetivo f\u00EDsico.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.2944673-06:00"
+  },
+  {
+    "Id": 3,
+    "UserId": 2,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3005223-06:00"
+  },
+  {
+    "Id": 4,
+    "UserId": 3,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3056975-06:00"
+  },
+  {
+    "Id": 5,
+    "UserId": 4,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3116359-06:00"
+  },
+  {
+    "Id": 6,
+    "UserId": 5,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3170236-06:00"
+  },
+  {
+    "Id": 7,
+    "UserId": 6,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3226705-06:00"
+  },
+  {
+    "Id": 8,
+    "UserId": 7,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3283512-06:00"
+  },
+  {
+    "Id": 9,
+    "UserId": 8,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3342006-06:00"
+  },
+  {
+    "Id": 10,
+    "UserId": 9,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.340093-06:00"
+  },
+  {
+    "Id": 11,
+    "UserId": 10,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3455431-06:00"
+  },
+  {
+    "Id": 12,
+    "UserId": 11,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3513338-06:00"
+  },
+  {
+    "Id": 13,
+    "UserId": 12,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3567675-06:00"
+  },
+  {
+    "Id": 14,
+    "UserId": 13,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.362719-06:00"
+  },
+  {
+    "Id": 15,
+    "UserId": 14,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3681511-06:00"
+  },
+  {
+    "Id": 16,
+    "UserId": 15,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3741541-06:00"
+  },
+  {
+    "Id": 17,
+    "UserId": 16,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3798855-06:00"
+  },
+  {
+    "Id": 18,
+    "UserId": 17,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3858567-06:00"
+  },
+  {
+    "Id": 19,
+    "UserId": 18,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3920255-06:00"
+  },
+  {
+    "Id": 20,
+    "UserId": 19,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.3975463-06:00"
+  },
+  {
+    "Id": 21,
+    "UserId": 20,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4035724-06:00"
+  },
+  {
+    "Id": 22,
+    "UserId": 21,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4095512-06:00"
+  },
+  {
+    "Id": 23,
+    "UserId": 22,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4157167-06:00"
+  },
+  {
+    "Id": 24,
+    "UserId": 23,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4214939-06:00"
+  },
+  {
+    "Id": 25,
+    "UserId": 24,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4276792-06:00"
+  },
+  {
+    "Id": 26,
+    "UserId": 25,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4340462-06:00"
+  },
+  {
+    "Id": 27,
+    "UserId": 26,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4402948-06:00"
+  },
+  {
+    "Id": 28,
+    "UserId": 27,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4458297-06:00"
+  },
+  {
+    "Id": 29,
+    "UserId": 28,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.45179-06:00"
+  },
+  {
+    "Id": 30,
+    "UserId": 29,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.457736-06:00"
+  },
+  {
+    "Id": 31,
+    "UserId": 30,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4642425-06:00"
+  },
+  {
+    "Id": 32,
+    "UserId": 31,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4701459-06:00"
+  },
+  {
+    "Id": 33,
+    "UserId": 32,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4762112-06:00"
+  },
+  {
+    "Id": 34,
+    "UserId": 33,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4819401-06:00"
+  },
+  {
+    "Id": 35,
+    "UserId": 34,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.488098-06:00"
+  },
+  {
+    "Id": 36,
+    "UserId": 35,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4943455-06:00"
+  },
+  {
+    "Id": 37,
+    "UserId": 36,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.4999874-06:00"
+  },
+  {
+    "Id": 38,
+    "UserId": 37,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.5064795-06:00"
+  },
+  {
+    "Id": 39,
+    "UserId": 38,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.5125444-06:00"
+  },
+  {
+    "Id": 40,
+    "UserId": 39,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.5185279-06:00"
+  },
+  {
+    "Id": 41,
+    "UserId": 40,
+    "Name": "Primera visita",
+    "Description": "Registr\u00F3 su primera visita al gimnasio.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T21:33:07.5249043-06:00"
+  },
+  {
+    "Id": 43,
+    "UserId": 2,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:40:07.4394566-06:00"
+  },
+  {
+    "Id": 44,
+    "UserId": 3,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:40:07.447994-06:00"
+  },
+  {
+    "Id": 45,
+    "UserId": 4,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:40:07.456068-06:00"
+  },
+  {
+    "Id": 46,
+    "UserId": 5,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:40:07.4645205-06:00"
+  },
+  {
+    "Id": 47,
+    "UserId": 6,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:40:07.4727332-06:00"
+  },
+  {
+    "Id": 48,
+    "UserId": 7,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:40:07.4812388-06:00"
+  },
+  {
+    "Id": 49,
+    "UserId": 8,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:40:07.5005336-06:00"
+  },
+  {
+    "Id": 50,
+    "UserId": 9,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:40:07.5092985-06:00"
+  },
+  {
+    "Id": 52,
+    "UserId": 10,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas al gimnasio.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-22T21:47:45.3637931-06:00"
+  },
+  {
+    "Id": 54,
+    "UserId": 2,
+    "Name": "Meta cumplida",
+    "Description": "Complet\u00F3 al menos un objetivo f\u00EDsico.",
+    "BadgeType": "Positiva",
+    "AwardedDate": "2026-11-22T22:00:41.6968962-06:00"
+  },
+  {
+    "Id": 55,
+    "UserId": 24,
+    "Name": "Progreso desactualizado",
+    "Description": "No ha actualizado sus mediciones f\u00EDsicas dentro del per\u00EDodo de 30 d\u00EDas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-23T15:16:47.4877787-06:00"
+  },
+  {
+    "Id": 56,
+    "UserId": 25,
+    "Name": "Progreso desactualizado",
+    "Description": "No ha actualizado sus mediciones f\u00EDsicas dentro del per\u00EDodo de 30 d\u00EDas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-23T15:16:47.4993258-06:00"
+  },
+  {
+    "Id": 57,
+    "UserId": 26,
+    "Name": "Progreso desactualizado",
+    "Description": "No ha actualizado sus mediciones f\u00EDsicas dentro del per\u00EDodo de 30 d\u00EDas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-23T15:16:47.5087116-06:00"
+  },
+  {
+    "Id": 58,
+    "UserId": 27,
+    "Name": "Progreso desactualizado",
+    "Description": "No ha actualizado sus mediciones f\u00EDsicas dentro del per\u00EDodo de 30 d\u00EDas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-23T15:16:47.5178004-06:00"
+  },
+  {
+    "Id": 59,
+    "UserId": 28,
+    "Name": "Progreso desactualizado",
+    "Description": "No ha actualizado sus mediciones f\u00EDsicas dentro del per\u00EDodo de 30 d\u00EDas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-23T15:16:47.5265441-06:00"
+  },
+  {
+    "Id": 60,
+    "UserId": 29,
+    "Name": "Progreso desactualizado",
+    "Description": "No ha actualizado sus mediciones f\u00EDsicas dentro del per\u00EDodo de 30 d\u00EDas.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-23T15:16:47.5356226-06:00"
+  },
+  {
+    "Id": 62,
+    "UserId": 1,
+    "Name": "Baja asistencia",
+    "Description": "Se encuentra entre los 10 usuarios con menos visitas al gimnasio.",
+    "BadgeType": "Negativa",
+    "AwardedDate": "2026-11-23T16:11:11.4342288-06:00"
+  }
+]

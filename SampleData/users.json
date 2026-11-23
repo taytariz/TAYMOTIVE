@@ -1,0 +1,2457 @@
+[
+  {
+    "Username": "usuario01",
+    "Password": "600000.bbJmAJSx9bduSxFxeX4BzA==.efElyG8JdekuTbKi\u002BDTxq4/UYj5Pr18cmsNPiS54scQ=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 1,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 1
+      },
+      {
+        "Id": 2,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 3
+      },
+      {
+        "Id": 3,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 4
+      },
+      {
+        "Id": 4,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 5
+      },
+      {
+        "Id": 5,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 6
+      }
+    ],
+    "Id": 1,
+    "Name": "Usuario Demostracion 01",
+    "Age": 19,
+    "Weight": 61,
+    "Height": 1.61
+  },
+  {
+    "Username": "usuario02",
+    "Password": "600000.6UHZi2QC1i9DDexAdxabpA==.CGIbK0pkMO1WPSwCgnbKNnFudn3QymLczFwLhWDcQmc=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 6,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 7
+      },
+      {
+        "Id": 7,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 8
+      },
+      {
+        "Id": 8,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 9
+      },
+      {
+        "Id": 9,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 10
+      },
+      {
+        "Id": 10,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 11
+      }
+    ],
+    "Id": 2,
+    "Name": "Usuario Demostracion 02",
+    "Age": 20,
+    "Weight": 62,
+    "Height": 1.62
+  },
+  {
+    "Username": "usuario03",
+    "Password": "600000.YEkViYWN0Xm4ogUzycBU2w==.JcF3/Zc/CGjpMTfKysaV8nxogG7wOKU1uPmrIQHblz8=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 11,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 12
+      },
+      {
+        "Id": 12,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 13
+      },
+      {
+        "Id": 13,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 14
+      },
+      {
+        "Id": 14,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 15
+      },
+      {
+        "Id": 15,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 16
+      }
+    ],
+    "Id": 3,
+    "Name": "Usuario Demostracion 03",
+    "Age": 21,
+    "Weight": 63,
+    "Height": 1.6300000000000001
+  },
+  {
+    "Username": "usuario04",
+    "Password": "600000.V5PTGW/7HywJSAr8uDIQdw==.aPqnjqpsHOVjR1U4l59hh6MSQmP\u002B1Ex6haoqU2/AK/w=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 16,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 17
+      },
+      {
+        "Id": 17,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 18
+      },
+      {
+        "Id": 18,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 19
+      },
+      {
+        "Id": 19,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 20
+      },
+      {
+        "Id": 20,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 21
+      }
+    ],
+    "Id": 4,
+    "Name": "Usuario Demostracion 04",
+    "Age": 22,
+    "Weight": 64,
+    "Height": 1.6400000000000001
+  },
+  {
+    "Username": "usuario05",
+    "Password": "600000.9\u002Bfb9ekgc4ThofTB\u002Ba5cxg==.AdLlJXSen4ulaw9oWsINgoBzEgk6rIpzCX2\u002BuZPKsR4=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 21,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 22
+      },
+      {
+        "Id": 22,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 23
+      },
+      {
+        "Id": 23,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 24
+      },
+      {
+        "Id": 24,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 25
+      },
+      {
+        "Id": 25,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 26
+      }
+    ],
+    "Id": 5,
+    "Name": "Usuario Demostracion 05",
+    "Age": 23,
+    "Weight": 65,
+    "Height": 1.6500000000000001
+  },
+  {
+    "Username": "usuario06",
+    "Password": "600000.ZBb1PW15NsaCcUsmFPdt9A==.ZrPDK3IW0\u002BOd/f1xMTq8XJq9mUiUQvpthByznK5TLUk=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 26,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 27
+      },
+      {
+        "Id": 27,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 28
+      },
+      {
+        "Id": 28,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 29
+      },
+      {
+        "Id": 29,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 30
+      },
+      {
+        "Id": 30,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 31
+      }
+    ],
+    "Id": 6,
+    "Name": "Usuario Demostracion 06",
+    "Age": 24,
+    "Weight": 66,
+    "Height": 1.6600000000000001
+  },
+  {
+    "Username": "usuario07",
+    "Password": "600000.yBLtX8jI9rt8EbPSaggwVw==.MP9/Ygt2xaMpQT8gjejLvKT\u002BT0/6/7ztQ40/TJcuIXI=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 31,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 32
+      },
+      {
+        "Id": 32,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 33
+      },
+      {
+        "Id": 33,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 34
+      },
+      {
+        "Id": 34,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 35
+      },
+      {
+        "Id": 35,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 36
+      }
+    ],
+    "Id": 7,
+    "Name": "Usuario Demostracion 07",
+    "Age": 25,
+    "Weight": 67,
+    "Height": 1.6700000000000002
+  },
+  {
+    "Username": "usuario08",
+    "Password": "600000.Blr3/A30PZuu2/Z/Fn1RLQ==.GWSpttN2LWP466SDiS6SyswZvbotj8cntqWhATVs54g=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 36,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 37
+      },
+      {
+        "Id": 37,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 38
+      },
+      {
+        "Id": 38,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 39
+      },
+      {
+        "Id": 39,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 40
+      },
+      {
+        "Id": 40,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 1
+      }
+    ],
+    "Id": 8,
+    "Name": "Usuario Demostracion 08",
+    "Age": 26,
+    "Weight": 68,
+    "Height": 1.6800000000000002
+  },
+  {
+    "Username": "usuario09",
+    "Password": "600000.xlNNToeDkt1Qh2OvuXdRQA==.LnPjBK2fyN3Vx1GvwJPZjRCQp1uB7JIiCHCeaa1yaEY=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 41,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 2
+      },
+      {
+        "Id": 42,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 3
+      },
+      {
+        "Id": 43,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 4
+      },
+      {
+        "Id": 44,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 5
+      },
+      {
+        "Id": 45,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 6
+      }
+    ],
+    "Id": 9,
+    "Name": "Usuario Demostracion 09",
+    "Age": 27,
+    "Weight": 69,
+    "Height": 1.6900000000000002
+  },
+  {
+    "Username": "usuario10",
+    "Password": "600000.Rb7\u002B6quaBNmbF3wsxjSpKQ==.\u002Bjg0BUzapibk377GStwdL\u002BkO4oU7zUW8cSJhnxBf8Hs=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 46,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 7
+      },
+      {
+        "Id": 47,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 8
+      },
+      {
+        "Id": 48,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 9
+      },
+      {
+        "Id": 49,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 10
+      },
+      {
+        "Id": 50,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 11
+      }
+    ],
+    "Id": 10,
+    "Name": "Usuario Demostracion 10",
+    "Age": 28,
+    "Weight": 70,
+    "Height": 1.7000000000000002
+  },
+  {
+    "Username": "usuario11",
+    "Password": "600000.aAGRu67z4HkJAz\u002B/7jZSsQ==.aB7CS3PY4pH2\u002BNYTuK7mEDOEyJNpdsNkoqrtRSwFYho=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 51,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 12
+      },
+      {
+        "Id": 52,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 13
+      },
+      {
+        "Id": 53,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 14
+      },
+      {
+        "Id": 54,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 15
+      },
+      {
+        "Id": 55,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 16
+      }
+    ],
+    "Id": 11,
+    "Name": "Usuario Demostracion 11",
+    "Age": 29,
+    "Weight": 71,
+    "Height": 1.7100000000000002
+  },
+  {
+    "Username": "usuario12",
+    "Password": "600000.Z/4WYMLaGwzTTdhpA5OsyQ==.ZTzRpfHG3kH5HijucWW\u002BQDKjgAJp5k/ha4yqbL7ASpY=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 56,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 17
+      },
+      {
+        "Id": 57,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 18
+      },
+      {
+        "Id": 58,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 19
+      },
+      {
+        "Id": 59,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 20
+      },
+      {
+        "Id": 60,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 21
+      }
+    ],
+    "Id": 12,
+    "Name": "Usuario Demostracion 12",
+    "Age": 30,
+    "Weight": 72,
+    "Height": 1.7200000000000002
+  },
+  {
+    "Username": "usuario13",
+    "Password": "600000.IDaUkWo7qh6/tAW8LUl43Q==.8PEofl4Y0fDUxAW5h6KsTWOthCprG5j6X4DH9akuU6I=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 61,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 22
+      },
+      {
+        "Id": 62,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 23
+      },
+      {
+        "Id": 63,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 24
+      },
+      {
+        "Id": 64,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 25
+      },
+      {
+        "Id": 65,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 26
+      }
+    ],
+    "Id": 13,
+    "Name": "Usuario Demostracion 13",
+    "Age": 31,
+    "Weight": 73,
+    "Height": 1.73
+  },
+  {
+    "Username": "usuario14",
+    "Password": "600000.vAJ9X3TbHs07zovHxQv1RA==.74fwQOZ4B7BzkTBjc/AlYSDE/6wKVsVmOJj0gCjHDI0=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 66,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 27
+      },
+      {
+        "Id": 67,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 28
+      },
+      {
+        "Id": 68,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 29
+      },
+      {
+        "Id": 69,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 30
+      },
+      {
+        "Id": 70,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 31
+      }
+    ],
+    "Id": 14,
+    "Name": "Usuario Demostracion 14",
+    "Age": 32,
+    "Weight": 74,
+    "Height": 1.7400000000000002
+  },
+  {
+    "Username": "usuario15",
+    "Password": "600000.NtVsCmOFWKca1HmzWyJ0ZA==.v5Cma5ujPzV\u002BUXtTBeKkokbvolZ\u002BAkYNfh3g9GH7cWk=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 71,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 32
+      },
+      {
+        "Id": 72,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 33
+      },
+      {
+        "Id": 73,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 34
+      },
+      {
+        "Id": 74,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 35
+      },
+      {
+        "Id": 75,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 36
+      }
+    ],
+    "Id": 15,
+    "Name": "Usuario Demostracion 15",
+    "Age": 33,
+    "Weight": 75,
+    "Height": 1.75
+  },
+  {
+    "Username": "usuario16",
+    "Password": "600000.JJ1khFeUDmduI\u002Bnwl2CVtw==.j5D9nZoZDDHpUV1wNSyJQx\u002BRaxAQ756WHs2a/F/E5z4=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 76,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 37
+      },
+      {
+        "Id": 77,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 38
+      },
+      {
+        "Id": 78,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 39
+      },
+      {
+        "Id": 79,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 40
+      },
+      {
+        "Id": 80,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 1
+      }
+    ],
+    "Id": 16,
+    "Name": "Usuario Demostracion 16",
+    "Age": 34,
+    "Weight": 76,
+    "Height": 1.76
+  },
+  {
+    "Username": "usuario17",
+    "Password": "600000.xyziK/rICDCSOwIlfPmEIQ==.GvzGaIb5WvZZwrllBE93ZuZlc78NnBpEMMunqrKONhk=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 81,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 2
+      },
+      {
+        "Id": 82,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 3
+      },
+      {
+        "Id": 83,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 4
+      },
+      {
+        "Id": 84,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 5
+      },
+      {
+        "Id": 85,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 6
+      }
+    ],
+    "Id": 17,
+    "Name": "Usuario Demostracion 17",
+    "Age": 35,
+    "Weight": 77,
+    "Height": 1.77
+  },
+  {
+    "Username": "usuario18",
+    "Password": "600000.KqPaIXAEdNo4gRCVp0vstw==.DCPccy4VIvyYaEpnMjFrfap2kLsxtiRvNmXT29EFgj8=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 86,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 7
+      },
+      {
+        "Id": 87,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 8
+      },
+      {
+        "Id": 88,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 9
+      },
+      {
+        "Id": 89,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 10
+      },
+      {
+        "Id": 90,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 11
+      }
+    ],
+    "Id": 18,
+    "Name": "Usuario Demostracion 18",
+    "Age": 36,
+    "Weight": 78,
+    "Height": 1.78
+  },
+  {
+    "Username": "usuario19",
+    "Password": "600000.uxlCJE3sbe/NGhz9fy03Uw==.UmtAWO7i/9pJbtY\u002BLgMarOwtxJndLqM5q\u002BTc2UFfk2c=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 91,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 12
+      },
+      {
+        "Id": 92,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 13
+      },
+      {
+        "Id": 93,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 14
+      },
+      {
+        "Id": 94,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 15
+      },
+      {
+        "Id": 95,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 16
+      }
+    ],
+    "Id": 19,
+    "Name": "Usuario Demostracion 19",
+    "Age": 37,
+    "Weight": 79,
+    "Height": 1.79
+  },
+  {
+    "Username": "usuario20",
+    "Password": "600000.1IUgsgYufWXV1zmGChrEmg==.AYAfdrqrXp0t\u002BmZdttpdIwsIzDkz/5rjbPxCZc2mL58=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 96,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 17
+      },
+      {
+        "Id": 97,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 18
+      },
+      {
+        "Id": 98,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 19
+      },
+      {
+        "Id": 99,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 20
+      },
+      {
+        "Id": 100,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 21
+      }
+    ],
+    "Id": 20,
+    "Name": "Usuario Demostracion 20",
+    "Age": 38,
+    "Weight": 80,
+    "Height": 1.6
+  },
+  {
+    "Username": "usuario21",
+    "Password": "600000.NyAck/D0eRd0TvcMOXvIQQ==.4IcVN\u002BUXYQIQ9uxVbdBLjQ6xZFjmk8ydfFLll9m8tMg=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 101,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 22
+      },
+      {
+        "Id": 102,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 23
+      },
+      {
+        "Id": 103,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 24
+      },
+      {
+        "Id": 104,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 25
+      },
+      {
+        "Id": 105,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 26
+      }
+    ],
+    "Id": 21,
+    "Name": "Usuario Demostracion 21",
+    "Age": 39,
+    "Weight": 81,
+    "Height": 1.61
+  },
+  {
+    "Username": "usuario22",
+    "Password": "600000.P1W2oeGNWwKCWULGN\u002BTtqw==.1h8ND7Xb4KCh1biOvw0jk90\u002Ba9TB4cPF9xQjhDgJHlM=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 106,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 27
+      },
+      {
+        "Id": 107,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 28
+      },
+      {
+        "Id": 108,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 29
+      },
+      {
+        "Id": 109,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 30
+      },
+      {
+        "Id": 110,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 31
+      }
+    ],
+    "Id": 22,
+    "Name": "Usuario Demostracion 22",
+    "Age": 40,
+    "Weight": 82,
+    "Height": 1.62
+  },
+  {
+    "Username": "usuario23",
+    "Password": "600000.YQm9V3TeO6gz8uADMlzXQQ==.YWIIYyiNj\u002BY/JNCO2w1K0Ckch23dnGJCNsUPiLOksOA=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 111,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 32
+      },
+      {
+        "Id": 112,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 33
+      },
+      {
+        "Id": 113,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 34
+      },
+      {
+        "Id": 114,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 35
+      },
+      {
+        "Id": 115,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 36
+      }
+    ],
+    "Id": 23,
+    "Name": "Usuario Demostracion 23",
+    "Age": 41,
+    "Weight": 83,
+    "Height": 1.6300000000000001
+  },
+  {
+    "Username": "usuario24",
+    "Password": "600000.RhxsMe61Vv8\u002Bdw6WYBFFFg==.q6j8vDeS9nqOMtMmuUWCnFpMngSy8NsXNfwT6mxP3gg=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 116,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 37
+      },
+      {
+        "Id": 117,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 38
+      },
+      {
+        "Id": 118,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 39
+      },
+      {
+        "Id": 119,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 40
+      },
+      {
+        "Id": 120,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 1
+      }
+    ],
+    "Id": 24,
+    "Name": "Usuario Demostracion 24",
+    "Age": 42,
+    "Weight": 84,
+    "Height": 1.6400000000000001
+  },
+  {
+    "Username": "usuario25",
+    "Password": "600000.hEcuzB6CFuBaPhLExtuKMA==.lRtBWhjIgt6D\u002BMMQrlESPMP34H23KFi5p7MvyBxOlyE=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 121,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 2
+      },
+      {
+        "Id": 122,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 3
+      },
+      {
+        "Id": 123,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 4
+      },
+      {
+        "Id": 124,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 5
+      },
+      {
+        "Id": 125,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 6
+      }
+    ],
+    "Id": 25,
+    "Name": "Usuario Demostracion 25",
+    "Age": 43,
+    "Weight": 85,
+    "Height": 1.6500000000000001
+  },
+  {
+    "Username": "usuario26",
+    "Password": "600000.D0h48mjPGCUNlJGSx1HExg==.gthkaA\u002Bd3zwUxJvuHJi2XzCpxWr/eOG/5msuG1L7oyk=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 126,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 7
+      },
+      {
+        "Id": 127,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 8
+      },
+      {
+        "Id": 128,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 9
+      },
+      {
+        "Id": 129,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 10
+      },
+      {
+        "Id": 130,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 11
+      }
+    ],
+    "Id": 26,
+    "Name": "Usuario Demostracion 26",
+    "Age": 44,
+    "Weight": 86,
+    "Height": 1.6600000000000001
+  },
+  {
+    "Username": "usuario27",
+    "Password": "600000.aHNMwkmcbu8kQDkPbpfJXQ==.9/EQdOfaDcxjbPfahQQpzsHLptA3qNwvvX5ufX1PsVQ=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 131,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 12
+      },
+      {
+        "Id": 132,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 13
+      },
+      {
+        "Id": 133,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 14
+      },
+      {
+        "Id": 134,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 15
+      },
+      {
+        "Id": 135,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 16
+      }
+    ],
+    "Id": 27,
+    "Name": "Usuario Demostracion 27",
+    "Age": 45,
+    "Weight": 87,
+    "Height": 1.6700000000000002
+  },
+  {
+    "Username": "usuario28",
+    "Password": "600000.C/Vp5abLw6rjIA3Fd1k\u002Bow==.AIMM3xSWsW2qHNi3e/vlt8eATJg4HGNZ7d1uRio8Z1g=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 136,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 17
+      },
+      {
+        "Id": 137,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 18
+      },
+      {
+        "Id": 138,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 19
+      },
+      {
+        "Id": 139,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 20
+      },
+      {
+        "Id": 140,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 21
+      }
+    ],
+    "Id": 28,
+    "Name": "Usuario Demostracion 28",
+    "Age": 46,
+    "Weight": 88,
+    "Height": 1.6800000000000002
+  },
+  {
+    "Username": "usuario29",
+    "Password": "600000.3mRrsZdW47ZyfN5dLkWfjw==.ZKhjN9N9ZzQRKrmlRa0S\u002BOOSA33k7gva3ydjrod\u002BUsU=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 141,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 22
+      },
+      {
+        "Id": 142,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 23
+      },
+      {
+        "Id": 143,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 24
+      },
+      {
+        "Id": 144,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 25
+      },
+      {
+        "Id": 145,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 26
+      }
+    ],
+    "Id": 29,
+    "Name": "Usuario Demostracion 29",
+    "Age": 47,
+    "Weight": 89,
+    "Height": 1.6900000000000002
+  },
+  {
+    "Username": "usuario30",
+    "Password": "600000.woUWlqLxH5Td433EyhKFWg==.FlWKT//K1rBhnWtWy9I3QpvzLcf/hyqak7Uv/wMIdMk=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 146,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 27
+      },
+      {
+        "Id": 147,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 28
+      },
+      {
+        "Id": 148,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 29
+      },
+      {
+        "Id": 149,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 30
+      },
+      {
+        "Id": 150,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 31
+      }
+    ],
+    "Id": 30,
+    "Name": "Usuario Demostracion 30",
+    "Age": 48,
+    "Weight": 60,
+    "Height": 1.7000000000000002
+  },
+  {
+    "Username": "usuario31",
+    "Password": "600000.uOGsscQkA\u002B0fR5QiMPKs9A==.XM1YIdyw92NlQLlFRcT\u002BM68tIFwIEUp42BpHGEyYNco=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 151,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 32
+      },
+      {
+        "Id": 152,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 33
+      },
+      {
+        "Id": 153,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 34
+      },
+      {
+        "Id": 154,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 35
+      },
+      {
+        "Id": 155,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 36
+      }
+    ],
+    "Id": 31,
+    "Name": "Usuario Demostracion 31",
+    "Age": 49,
+    "Weight": 61,
+    "Height": 1.7100000000000002
+  },
+  {
+    "Username": "usuario32",
+    "Password": "600000.cR1DayguIVtlr7OGxJOuKA==.VObw0AjBSTyEL8oo2iOXKHz427/tTn8Cp6DZxk8bAuk=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 156,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 37
+      },
+      {
+        "Id": 157,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 38
+      },
+      {
+        "Id": 158,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 39
+      },
+      {
+        "Id": 159,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 40
+      },
+      {
+        "Id": 160,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 1
+      }
+    ],
+    "Id": 32,
+    "Name": "Usuario Demostracion 32",
+    "Age": 50,
+    "Weight": 62,
+    "Height": 1.7200000000000002
+  },
+  {
+    "Username": "usuario33",
+    "Password": "600000.mrzGnX68aLW6NH5aT6vXsQ==.VOnSH/CZLKevTw2DdN6YWSC5LHcyflk32QbBpPPsSdA=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 161,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 2
+      },
+      {
+        "Id": 162,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 3
+      },
+      {
+        "Id": 163,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 4
+      },
+      {
+        "Id": 164,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 5
+      },
+      {
+        "Id": 165,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 6
+      }
+    ],
+    "Id": 33,
+    "Name": "Usuario Demostracion 33",
+    "Age": 51,
+    "Weight": 63,
+    "Height": 1.73
+  },
+  {
+    "Username": "usuario34",
+    "Password": "600000.utwFQEevJlhpBzBMNCdnBw==.LdIFk\u002BanQoXvy1A/Hdo/WGgI1Bqgc2iEGxdhQ6l88JQ=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 166,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 7
+      },
+      {
+        "Id": 167,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 8
+      },
+      {
+        "Id": 168,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 9
+      },
+      {
+        "Id": 169,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 10
+      },
+      {
+        "Id": 170,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 11
+      }
+    ],
+    "Id": 34,
+    "Name": "Usuario Demostracion 34",
+    "Age": 52,
+    "Weight": 64,
+    "Height": 1.7400000000000002
+  },
+  {
+    "Username": "usuario35",
+    "Password": "600000.k9poe8D473Q7R\u002BrW\u002BT9GQQ==.Gcnq\u002BKCOMtKll5BMeOyCTqwnun3VhDbdaC7Git4/hns=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 171,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 12
+      },
+      {
+        "Id": 172,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 13
+      },
+      {
+        "Id": 173,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 14
+      },
+      {
+        "Id": 174,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 15
+      },
+      {
+        "Id": 175,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 16
+      }
+    ],
+    "Id": 35,
+    "Name": "Usuario Demostracion 35",
+    "Age": 18,
+    "Weight": 65,
+    "Height": 1.75
+  },
+  {
+    "Username": "usuario36",
+    "Password": "600000.iL61GTLAP\u002BUIkgFKIU1aZw==.pBV1iHMYLDpUbSXdvY84PiykcxoDwh7kAK2L9ssBoc4=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 176,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 17
+      },
+      {
+        "Id": 177,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 18
+      },
+      {
+        "Id": 178,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 19
+      },
+      {
+        "Id": 179,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 20
+      },
+      {
+        "Id": 180,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 21
+      }
+    ],
+    "Id": 36,
+    "Name": "Usuario Demostracion 36",
+    "Age": 19,
+    "Weight": 66,
+    "Height": 1.76
+  },
+  {
+    "Username": "usuario37",
+    "Password": "600000.eVr2eAeyvDVUeFsomqbh1Q==.SxMmG8Q03l/dGWgjXHbA2LxU/dPT1d\u002BKFyAr17a5oyo=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 181,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 22
+      },
+      {
+        "Id": 182,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 23
+      },
+      {
+        "Id": 183,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 24
+      },
+      {
+        "Id": 184,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00",
+        "TrainerId": 2
+      },
+      {
+        "Id": 185,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 25
+      }
+    ],
+    "Id": 37,
+    "Name": "Usuario Demostracion 37",
+    "Age": 20,
+    "Weight": 67,
+    "Height": 1.77
+  },
+  {
+    "Username": "usuario38",
+    "Password": "600000.jv4CZYFB3KGEZyVeg4P0\u002BA==.xXWtfjtogBbjNEvZJYg1wuGRvUKcSycpveOHNUPrAPM=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 186,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 26
+      },
+      {
+        "Id": 187,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 27
+      },
+      {
+        "Id": 188,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 28
+      },
+      {
+        "Id": 189,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 29
+      },
+      {
+        "Id": 190,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 30
+      }
+    ],
+    "Id": 38,
+    "Name": "Usuario Demostracion 38",
+    "Age": 21,
+    "Weight": 68,
+    "Height": 1.78
+  },
+  {
+    "Username": "usuario39",
+    "Password": "600000.vnnkAWGDSIOclBankHdIQg==.tHJvh18zb86DqGTFANkmJUHSzTcwWB7mH2SK/Tnug2M=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 191,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 31
+      },
+      {
+        "Id": 192,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 32
+      },
+      {
+        "Id": 193,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 33
+      },
+      {
+        "Id": 194,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 34
+      },
+      {
+        "Id": 195,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 35
+      }
+    ],
+    "Id": 39,
+    "Name": "Usuario Demostracion 39",
+    "Age": 22,
+    "Weight": 69,
+    "Height": 1.79
+  },
+  {
+    "Username": "usuario40",
+    "Password": "600000.rcGratdoUZBqIaDB5TikyQ==.VwclLiybRSyZoaUPb0q9/ttqEUIdK618UEnn0HsxHV8=",
+    "Goal": "Mejorar condici\u00F3n f\u00EDsica",
+    "IsAdmin": false,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [
+      {
+        "Id": 196,
+        "Name": "Rutina 1",
+        "Description": "Entrenamiento f\u00EDsico 1",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 36
+      },
+      {
+        "Id": 197,
+        "Name": "Rutina 2",
+        "Description": "Entrenamiento f\u00EDsico 2",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 37
+      },
+      {
+        "Id": 198,
+        "Name": "Rutina 3",
+        "Description": "Entrenamiento f\u00EDsico 3",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 38
+      },
+      {
+        "Id": 199,
+        "Name": "Rutina 4",
+        "Description": "Entrenamiento f\u00EDsico 4",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 39
+      },
+      {
+        "Id": 200,
+        "Name": "Rutina 5",
+        "Description": "Entrenamiento f\u00EDsico 5",
+        "Duration": 45,
+        "StartDate": "2026-11-16T00:00:00-06:00",
+        "EndDate": "2026-12-16T00:00:00-06:00",
+        "TrainerId": 40
+      }
+    ],
+    "Id": 40,
+    "Name": "Usuario Demostracion 40",
+    "Age": 23,
+    "Weight": 70,
+    "Height": 1.6
+  },
+  {
+    "Username": "admin_demo",
+    "Password": "600000.RHpNuS/WsEJhd8r7qCiWhQ==.jEE16FfCbNIr8XMf/mNysWsYgRRdkj3gSNaDlfsIxsw=",
+    "Goal": "Administraci\u00F3n del gimnasio",
+    "IsAdmin": true,
+    "ActivationCodeHash": "",
+    "ActivationCodeExpiration": null,
+    "IsActivated": true,
+    "Routines": [],
+    "Id": 41,
+    "Name": "Administrador Demo",
+    "Age": 25,
+    "Weight": 70,
+    "Height": 1.75
+  }
+]

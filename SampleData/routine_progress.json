@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "UserId": 2,
+    "RoutineId": 6,
+    "ExerciseName": "Press de banca",
+    "Weight": 20,
+    "ProgressDate": "2026-11-23T00:00:00-06:00"
+  },
+  {
+    "Id": 2,
+    "UserId": 2,
+    "RoutineId": 6,
+    "ExerciseName": "Press de banca",
+    "Weight": 25,
+    "ProgressDate": "2026-11-23T00:00:00-06:00"
+  },
+  {
+    "Id": 3,
+    "UserId": 2,
+    "RoutineId": 6,
+    "ExerciseName": "Press de banca",
+    "Weight": 40,
+    "ProgressDate": "2026-11-20T00:00:00"
+  },
+  {
+    "Id": 4,
+    "UserId": 2,
+    "RoutineId": 6,
+    "ExerciseName": "Press de banca",
+    "Weight": 50,
+    "ProgressDate": "2026-11-23T00:00:00"
+  }
+]

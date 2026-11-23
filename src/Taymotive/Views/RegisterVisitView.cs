@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using TaymotiveController.Controllers;
 
@@ -44,11 +45,11 @@ namespace Taymotive.Views
 
         private void InitializeComponents()
         {
-            this.Text = "TAYMOTIVE - Registrar visita";
-            this.Size = new Size(550, 390);
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            Text = "TAYMOTIVE - Registrar visita";
+            Size = new Size(550, 390);
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
             lblTitle.Text = "REGISTRAR VISITA";
             lblTitle.Font = new Font(
@@ -78,11 +79,14 @@ namespace Taymotive.Views
             cmbClasses.Width = 250;
             cmbClasses.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            // Clases y actividades del gimnasio
             cmbClasses.Items.AddRange(new object[]
             {
                 "Yoga",
                 "Spinning",
                 "CrossFit",
+                "Zumba",
+                "Gimnasio libre",
                 "Funcional",
                 "Musculacion"
             });
@@ -99,26 +103,27 @@ namespace Taymotive.Views
             btnCancel.Size = new Size(140, 40);
             btnCancel.Click += BtnCancel_Click;
 
-            this.AcceptButton = btnSave;
-            this.CancelButton = btnCancel;
+            AcceptButton = btnSave;
+            CancelButton = btnCancel;
 
-            this.Controls.Add(lblTitle);
-            this.Controls.Add(cmbUsers);
-            this.Controls.Add(dtpDate);
-            this.Controls.Add(cmbClasses);
-            this.Controls.Add(btnSave);
-            this.Controls.Add(btnCancel);
+            Controls.Add(lblTitle);
+            Controls.Add(cmbUsers);
+            Controls.Add(dtpDate);
+            Controls.Add(cmbClasses);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
         }
 
         private void AddLabel(string text, int x, int y)
         {
-            Label label = new Label();
+            Label label = new Label
+            {
+                Text = text,
+                Location = new Point(x, y),
+                AutoSize = true
+            };
 
-            label.Text = text;
-            label.Location = new Point(x, y);
-            label.AutoSize = true;
-
-            this.Controls.Add(label);
+            Controls.Add(label);
         }
 
         private void LoadUsers()
@@ -127,7 +132,9 @@ namespace Taymotive.Views
             {
                 cmbUsers.Items.Clear();
 
-                var users = usersController.GetUsers();
+                var users = usersController.GetUsers()
+                    .Where(user => !user.IsAdmin)
+                    .ToList();
 
                 foreach (var user in users)
                 {
@@ -208,8 +215,8 @@ namespace Taymotive.Views
                         MessageBoxIcon.Information
                     );
 
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
                 else
                 {
@@ -234,8 +241,8 @@ namespace Taymotive.Views
 
         private void BtnCancel_Click(object? sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private class UserOption

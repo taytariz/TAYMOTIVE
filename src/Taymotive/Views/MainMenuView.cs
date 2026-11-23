@@ -18,6 +18,7 @@ namespace Taymotive.Views
         private readonly Label lblWelcome = new Label();
         private readonly Label lblUsername = new Label();
 
+        // Botones del administrador
         private readonly Button btnUsers = new Button();
         private readonly Button btnTrainers = new Button();
         private readonly Button btnRoutines = new Button();
@@ -26,6 +27,15 @@ namespace Taymotive.Views
         private readonly Button btnGoals = new Button();
         private readonly Button btnBadges = new Button();
         private readonly Button btnReports = new Button();
+
+        // Botones del usuario
+        private readonly Button btnMyRoutines = new Button();
+        private readonly Button btnMyGoals = new Button();
+        private readonly Button btnMyBadges = new Button();
+        private readonly Button btnMyMeasurements = new Button();
+        private readonly Button btnMyVisits = new Button();
+
+        // Botones generales
         private readonly Button btnNotifications = new Button();
         private readonly Button btnLogout = new Button();
 
@@ -47,7 +57,7 @@ namespace Taymotive.Views
             InitializeComponents();
         }
 
-        // Consultar el rol actual del usuario
+        // Verificar si el usuario es administrador
         private bool IsAdministrator()
         {
             User? user = usersController.GetUserById(
@@ -108,10 +118,15 @@ namespace Taymotive.Views
             int rightColumn =
                 leftColumn + buttonWidth + columnGap;
 
+            int centerColumn =
+                (ClientSize.Width - buttonWidth) / 2;
+
             bool isAdmin = IsAdministrator();
 
             if (isAdmin)
             {
+                // MENÚ DEL ADMINISTRADOR
+
                 ConfigureButton(
                     btnUsers,
                     "Usuarios",
@@ -297,13 +312,110 @@ namespace Taymotive.Views
                     }
                 };
             }
+            else
+            {
+                // MENÚ PERSONAL DEL USUARIO
 
-            // Notificaciones disponibles para todos
+                ConfigureButton(
+                    btnMyRoutines,
+                    "Mis rutinas",
+                    centerColumn,
+                    170
+                );
+
+                ConfigureButton(
+                    btnMyGoals,
+                    "Mis objetivos físicos",
+                    centerColumn,
+                    240
+                );
+
+                ConfigureButton(
+                    btnMyBadges,
+                    "Mis insignias y logros",
+                    centerColumn,
+                    310
+                );
+
+                ConfigureButton(
+                    btnMyMeasurements,
+                    "Mi progreso físico",
+                    centerColumn,
+                    380
+                );
+
+                // Nuevo botón: Mis visitas y clases
+                ConfigureButton(
+                    btnMyVisits,
+                    "Mis visitas y clases",
+                    centerColumn,
+                    450
+                );
+
+                // Abrir las rutinas del usuario
+                btnMyRoutines.Click += (sender, e) =>
+                {
+                    using (MyRoutinesView view =
+                        new MyRoutinesView(currentUser))
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                // Abrir los objetivos del usuario
+                btnMyGoals.Click += (sender, e) =>
+                {
+                    using (MyFitnessGoalsView view =
+                        new MyFitnessGoalsView(currentUser))
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                // Abrir las insignias del usuario
+                btnMyBadges.Click += (sender, e) =>
+                {
+                    using (MyBadgesView view =
+                        new MyBadgesView(currentUser))
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                // Abrir el progreso físico del usuario
+                btnMyMeasurements.Click += (sender, e) =>
+                {
+                    using (MyMeasurementsView view =
+                        new MyMeasurementsView(currentUser))
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                // Abrir las visitas y clases del usuario
+                btnMyVisits.Click += (sender, e) =>
+                {
+                    using (MyVisitsView view =
+                        new MyVisitsView(currentUser))
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                Controls.Add(btnMyRoutines);
+                Controls.Add(btnMyGoals);
+                Controls.Add(btnMyBadges);
+                Controls.Add(btnMyMeasurements);
+                Controls.Add(btnMyVisits);
+            }
+
+            // NOTIFICACIONES
+
             ConfigureButton(
                 btnNotifications,
                 "Mis notificaciones",
-                (ClientSize.Width - buttonWidth) / 2,
-                isAdmin ? 505 : 230
+                centerColumn,
+                isAdmin ? 505 : 530
             );
 
             btnNotifications.Paint +=
@@ -324,11 +436,13 @@ namespace Taymotive.Views
                 }
             };
 
+            // CERRAR SESIÓN
+
             ConfigureButton(
                 btnLogout,
                 "Cerrar sesión",
-                (ClientSize.Width - buttonWidth) / 2,
-                isAdmin ? 585 : 310
+                centerColumn,
+                isAdmin ? 585 : 610
             );
 
             btnLogout.Click += (sender, e) =>
@@ -342,10 +456,10 @@ namespace Taymotive.Views
             Controls.Add(btnNotifications);
             Controls.Add(btnLogout);
 
-            // Menú más pequeño para usuarios normales
+            // Ajustar altura para el menú personal
             if (!isAdmin)
             {
-                ClientSize = new Size(650, 430);
+                ClientSize = new Size(650, 710);
             }
 
             CenterHeaderLabels();
@@ -356,7 +470,7 @@ namespace Taymotive.Views
             };
         }
 
-        // Mensaje de acceso restringido
+        // Mostrar mensaje de acceso restringido
         private void ShowAccessDenied()
         {
             MessageBox.Show(
@@ -368,7 +482,7 @@ namespace Taymotive.Views
             );
         }
 
-        // Dibujar campana
+        // Dibujar campana de notificaciones
         private void BtnNotifications_Paint(
             object? sender,
             PaintEventArgs e)
@@ -431,7 +545,7 @@ namespace Taymotive.Views
             }
         }
 
-        // Centrar encabezados
+        // Centrar los encabezados
         private void CenterHeaderLabels()
         {
             lblTitle.Left =

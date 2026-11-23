@@ -22,6 +22,17 @@ namespace TaymotiveController.Controllers
             return fileHandler.Read();
         }
 
+        // Obtener mediciones de un usuario
+        public List<Measurement> GetMeasurementsByUser(int userId)
+        {
+            return fileHandler.Read()
+                .Where(measurement =>
+                    measurement.UserId == userId)
+                .OrderByDescending(measurement =>
+                    measurement.MeasurementDate)
+                .ToList();
+        }
+
         // Buscar una medición por ID
         public Measurement? GetMeasurementById(int id)
         {

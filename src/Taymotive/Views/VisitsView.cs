@@ -12,7 +12,8 @@ namespace Taymotive.Views
         private readonly Label lblTitle = new Label();
         private readonly Label lblTotal = new Label();
 
-        private readonly DataGridView dgvVisits = new DataGridView();
+        private readonly DataGridView dgvVisits =
+            new DataGridView();
 
         private readonly Button btnRegister = new Button();
         private readonly Button btnEdit = new Button();
@@ -22,23 +23,48 @@ namespace Taymotive.Views
 
         private readonly VisitsController visitsController;
         private readonly UsersController usersController;
+        private readonly FitnessGoalsController goalsController;
+        private readonly BadgesController badgesController;
+        private readonly BadgeRulesController badgeRulesController;
 
         public VisitsView()
         {
-            string visitsPath = Path.Combine(
+            string filesPath = Path.Combine(
                 Directory.GetCurrentDirectory(),
-                "Files",
+                "Files"
+            );
+
+            string visitsPath = Path.Combine(
+                filesPath,
                 "visits.json"
             );
 
             string usersPath = Path.Combine(
-                Directory.GetCurrentDirectory(),
-                "Files",
+                filesPath,
                 "users.json"
+            );
+
+            string goalsPath = Path.Combine(
+                filesPath,
+                "fitnessgoals.json"
+            );
+
+            string badgesPath = Path.Combine(
+                filesPath,
+                "badges.json"
             );
 
             visitsController = new VisitsController(visitsPath);
             usersController = new UsersController(usersPath);
+            goalsController = new FitnessGoalsController(goalsPath);
+            badgesController = new BadgesController(badgesPath);
+
+            badgeRulesController = new BadgeRulesController(
+                badgesController,
+                visitsController,
+                goalsController,
+                usersController
+            );
 
             InitializeComponents();
             LoadVisits();
@@ -46,11 +72,11 @@ namespace Taymotive.Views
 
         private void InitializeComponents()
         {
-            this.Text = "TAYMOTIVE - Gestión de visitas y clases";
-            this.Size = new Size(1050, 600);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            Text = "TAYMOTIVE - Gestión de visitas y clases";
+            Size = new Size(1050, 600);
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
             lblTitle.Text = "GESTIÓN DE VISITAS Y CLASES";
             lblTitle.Font = new Font(
@@ -109,16 +135,17 @@ namespace Taymotive.Views
             btnClose.Size = new Size(180, 40);
             btnClose.Click += BtnClose_Click;
 
-            this.Controls.Add(lblTitle);
-            this.Controls.Add(lblTotal);
-            this.Controls.Add(dgvVisits);
-            this.Controls.Add(btnRegister);
-            this.Controls.Add(btnEdit);
-            this.Controls.Add(btnDelete);
-            this.Controls.Add(btnRefresh);
-            this.Controls.Add(btnClose);
+            Controls.Add(lblTitle);
+            Controls.Add(lblTotal);
+            Controls.Add(dgvVisits);
+            Controls.Add(btnRegister);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
+            Controls.Add(btnRefresh);
+            Controls.Add(btnClose);
         }
 
+        // Mostrar visitas registradas
         private void LoadVisits()
         {
             try
@@ -146,34 +173,80 @@ namespace Taymotive.Views
                     );
                 }
 
-                lblTotal.Text = "Total de visitas: " + visits.Count;
+                lblTotal.Text =
+                    "Total de visitas: " + visits.Count;
 
                 dgvVisits.ClearSelection();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Error al cargar visitas: " + ex.Message,
-                    "TAYMOTIVE",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
+                ShowError(
+                    "Error al cargar visitas: " + ex.Message
                 );
             }
         }
 
-        private void BtnRegister_Click(object? sender, EventArgs e)
+        // Actualizar objetivos de asistencia
+        private void SynchronizeVisitGoals()
+        {
+            goalsController.UpdateAllVisitGoals(
+                visitsController
+            );
+        }
+
+        // Evaluar insignias de todos los usuarios
+        private void EvaluateAllUserBadges()
+        {
+            var users = usersController.GetUsers();
+
+            foreach (var user in users)
+            {
+                badgeRulesController.EvaluateUserBadges(
+                    user.Id
+                );
+            }
+        }
+
+        // Sincronizar objetivos e insignias
+        private void SynchronizeProgressAndBadges()
+        {
+            SynchronizeVisitGoals();
+            EvaluateAllUserBadges();
+        }
+
+        // Registrar visita
+        private void BtnRegister_Click(
+            object? sender,
+            EventArgs e)
         {
             using (RegisterVisitView registerView =
                 new RegisterVisitView())
             {
-                if (registerView.ShowDialog(this) == DialogResult.OK)
+                if (registerView.ShowDialog(this) ==
+                    DialogResult.OK)
                 {
+                    try
+                    {
+                        SynchronizeProgressAndBadges();
+                    }
+                    catch (Exception ex)
+                    {
+                        ShowError(
+                            "La visita fue registrada, pero " +
+                            "no se pudieron actualizar los objetivos " +
+                            "o las insignias: " + ex.Message
+                        );
+                    }
+
                     LoadVisits();
                 }
             }
         }
 
-        private void BtnEdit_Click(object? sender, EventArgs e)
+        // Modificar visita
+        private void BtnEdit_Click(
+            object? sender,
+            EventArgs e)
         {
             if (dgvVisits.SelectedRows.Count == 0)
             {
@@ -191,16 +264,34 @@ namespace Taymotive.Views
                 dgvVisits.SelectedRows[0].Cells["Id"].Value
             );
 
-            using (EditVisitView editView = new EditVisitView(visitId))
+            using (EditVisitView editView =
+                new EditVisitView(visitId))
             {
-                if (editView.ShowDialog(this) == DialogResult.OK)
+                if (editView.ShowDialog(this) ==
+                    DialogResult.OK)
                 {
+                    try
+                    {
+                        SynchronizeProgressAndBadges();
+                    }
+                    catch (Exception ex)
+                    {
+                        ShowError(
+                            "La visita fue modificada, pero " +
+                            "no se pudieron actualizar los objetivos " +
+                            "o las insignias: " + ex.Message
+                        );
+                    }
+
                     LoadVisits();
                 }
             }
         }
 
-        private void BtnDelete_Click(object? sender, EventArgs e)
+        // Eliminar visita
+        private void BtnDelete_Click(
+            object? sender,
+            EventArgs e)
         {
             if (dgvVisits.SelectedRows.Count == 0)
             {
@@ -250,10 +341,24 @@ namespace Taymotive.Views
 
             try
             {
-                bool deleted = visitsController.DeleteVisit(visitId);
+                bool deleted =
+                    visitsController.DeleteVisit(visitId);
 
                 if (deleted)
                 {
+                    try
+                    {
+                        SynchronizeProgressAndBadges();
+                    }
+                    catch (Exception ex)
+                    {
+                        ShowError(
+                            "La visita fue eliminada, pero " +
+                            "no se pudieron actualizar los objetivos " +
+                            "o las insignias: " + ex.Message
+                        );
+                    }
+
                     MessageBox.Show(
                         "Visita eliminada correctamente.",
                         "TAYMOTIVE",
@@ -275,23 +380,49 @@ namespace Taymotive.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Error al eliminar visita: " + ex.Message,
-                    "TAYMOTIVE",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
+                ShowError(
+                    "Error al eliminar visita: " + ex.Message
                 );
             }
         }
 
-        private void BtnRefresh_Click(object? sender, EventArgs e)
+        // Actualizar visitas, objetivos e insignias
+        private void BtnRefresh_Click(
+            object? sender,
+            EventArgs e)
         {
+            try
+            {
+                SynchronizeProgressAndBadges();
+            }
+            catch (Exception ex)
+            {
+                ShowError(
+                    "No se pudieron sincronizar los objetivos " +
+                    "o las insignias: " + ex.Message
+                );
+            }
+
             LoadVisits();
         }
 
-        private void BtnClose_Click(object? sender, EventArgs e)
+        // Mostrar errores
+        private void ShowError(string message)
         {
-            this.Close();
+            MessageBox.Show(
+                message,
+                "TAYMOTIVE",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            );
+        }
+
+        // Cerrar ventana
+        private void BtnClose_Click(
+            object? sender,
+            EventArgs e)
+        {
+            Close();
         }
     }
 }

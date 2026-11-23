@@ -4,19 +4,21 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using TaymotiveController.Controllers;
+using TaymotiveModels.Models;
 
 namespace Taymotive.Views
 {
     public class LoginView : Form
     {
-        private Label lblTitle = new Label();
-        private Label lblUsername = new Label();
-        private Label lblPassword = new Label();
+        private readonly Label lblTitle = new Label();
+        private readonly Label lblUsername = new Label();
+        private readonly Label lblPassword = new Label();
 
-        private TextBox txtUsername = new TextBox();
-        private TextBox txtPassword = new TextBox();
+        private readonly TextBox txtUsername = new TextBox();
+        private readonly TextBox txtPassword = new TextBox();
 
-        private Button btnLogin = new Button();
+        private readonly Button btnLogin = new Button();
+        private readonly Button btnActivate = new Button();
 
         private readonly LoginController loginController;
 
@@ -35,11 +37,11 @@ namespace Taymotive.Views
 
         private void InitializeComponents()
         {
-            this.Text = "TAYMOTIVE - Inicio de sesión";
-            this.Size = new Size(450, 350);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            Text = "TAYMOTIVE - Inicio de sesión";
+            ClientSize = new Size(450, 350);
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
             lblTitle.Text = "TAYMOTIVE";
             lblTitle.Font = new Font(
@@ -66,22 +68,47 @@ namespace Taymotive.Views
             txtPassword.PasswordChar = '*';
 
             btnLogin.Text = "Ingresar";
-            btnLogin.Location = new Point(170, 210);
+            btnLogin.Location = new Point(170, 205);
             btnLogin.Size = new Size(180, 40);
-
             btnLogin.Click += BtnLogin_Click;
 
-            this.AcceptButton = btnLogin;
+            btnActivate.Text = "Activar mi cuenta";
+            btnActivate.Location = new Point(170, 260);
+            btnActivate.Size = new Size(180, 40);
+            btnActivate.Click += BtnActivate_Click;
 
-            this.Controls.Add(lblTitle);
-            this.Controls.Add(lblUsername);
-            this.Controls.Add(txtUsername);
-            this.Controls.Add(lblPassword);
-            this.Controls.Add(txtPassword);
-            this.Controls.Add(btnLogin);
+            AcceptButton = btnLogin;
+
+            Controls.Add(lblTitle);
+            Controls.Add(lblUsername);
+            Controls.Add(txtUsername);
+            Controls.Add(lblPassword);
+            Controls.Add(txtPassword);
+            Controls.Add(btnLogin);
+            Controls.Add(btnActivate);
         }
 
-        private void BtnLogin_Click(object? sender, EventArgs e)
+        // Abrir ventana de activación
+        private void BtnActivate_Click(
+            object? sender,
+            EventArgs e)
+        {
+            using (ActivateAccountView activateView =
+                new ActivateAccountView())
+            {
+                if (activateView.ShowDialog(this) ==
+                    DialogResult.OK)
+                {
+                    txtPassword.Clear();
+                    txtUsername.Focus();
+                }
+            }
+        }
+
+        // Iniciar sesión
+        private void BtnLogin_Click(
+            object? sender,
+            EventArgs e)
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
@@ -104,8 +131,12 @@ namespace Taymotive.Views
                 password
             );
 
-            if (validUser)
+            if (validUser &&
+                loginController.CurrentUser != null)
             {
+                User currentUser =
+                    loginController.CurrentUser;
+
                 MessageBox.Show(
                     "Inicio de sesión exitoso.",
                     "TAYMOTIVE",
@@ -115,15 +146,23 @@ namespace Taymotive.Views
 
                 txtPassword.Clear();
 
-                this.Hide();
+                Hide();
 
-                using (MainMenuView mainMenu = new MainMenuView())
+                try
                 {
-                    mainMenu.ShowDialog();
+                    using (MainMenuView mainMenu =
+                        new MainMenuView(currentUser))
+                    {
+                        mainMenu.ShowDialog();
+                    }
                 }
+                finally
+                {
+                    loginController.Logout();
 
-                this.Show();
-                txtPassword.Focus();
+                    Show();
+                    txtPassword.Focus();
+                }
             }
             else
             {

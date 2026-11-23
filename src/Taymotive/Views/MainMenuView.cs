@@ -1,32 +1,72 @@
 
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
+using TaymotiveController.Controllers;
+using TaymotiveModels.Models;
 
 namespace Taymotive.Views
 {
     public class MainMenuView : Form
     {
+        private readonly User currentUser;
+        private readonly UsersController usersController;
+
         private readonly Label lblTitle = new Label();
         private readonly Label lblWelcome = new Label();
+        private readonly Label lblUsername = new Label();
 
         private readonly Button btnUsers = new Button();
         private readonly Button btnTrainers = new Button();
         private readonly Button btnRoutines = new Button();
         private readonly Button btnMeasurements = new Button();
         private readonly Button btnVisits = new Button();
+        private readonly Button btnGoals = new Button();
+        private readonly Button btnBadges = new Button();
         private readonly Button btnReports = new Button();
+        private readonly Button btnNotifications = new Button();
         private readonly Button btnLogout = new Button();
 
-        public MainMenuView()
+        public MainMenuView(User currentUser)
         {
+            this.currentUser = currentUser ??
+                throw new ArgumentNullException(
+                    nameof(currentUser)
+                );
+
+            string filePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Files",
+                "users.json"
+            );
+
+            usersController = new UsersController(filePath);
+
             InitializeComponents();
+        }
+
+        // Consultar el rol actual del usuario
+        private bool IsAdministrator()
+        {
+            User? user = usersController.GetUserById(
+                currentUser.Id
+            );
+
+            return user != null &&
+                user.IsAdmin &&
+                string.Equals(
+                    user.Username,
+                    currentUser.Username,
+                    StringComparison.OrdinalIgnoreCase
+                );
         }
 
         private void InitializeComponents()
         {
             Text = "TAYMOTIVE - Menú principal";
-            Size = new Size(650, 550);
+            ClientSize = new Size(650, 720);
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -37,41 +77,374 @@ namespace Taymotive.Views
                 24,
                 FontStyle.Bold
             );
-            lblTitle.Location = new Point(205, 30);
             lblTitle.AutoSize = true;
+            lblTitle.Top = 25;
 
             lblWelcome.Text = "Sistema de gestión fitness";
             lblWelcome.Font = new Font("Arial", 12);
-            lblWelcome.Location = new Point(205, 85);
             lblWelcome.AutoSize = true;
+            lblWelcome.Top = 80;
 
-            ConfigureButton(btnUsers, "Usuarios", 100, 150);
-            ConfigureButton(btnTrainers, "Entrenadores", 350, 150);
-            ConfigureButton(btnRoutines, "Rutinas", 100, 230);
-            ConfigureButton(btnMeasurements, "Mediciones", 350, 230);
-            ConfigureButton(btnVisits, "Visitas y clases", 100, 310);
-            ConfigureButton(btnReports, "Reportes", 350, 310);
-            ConfigureButton(btnLogout, "Cerrar sesión", 225, 410);
+            lblUsername.Text =
+                "Bienvenido(a), " + currentUser.Name;
 
-            btnUsers.Click += BtnUsers_Click;
-            btnTrainers.Click += BtnTrainers_Click;
-            btnRoutines.Click += BtnRoutines_Click;
-            btnMeasurements.Click += BtnMeasurements_Click;
-            btnVisits.Click += BtnVisits_Click;
-            btnReports.Click += BtnReports_Click;
-            btnLogout.Click += BtnLogout_Click;
+            lblUsername.Font = new Font(
+                "Arial",
+                11,
+                FontStyle.Bold
+            );
+            lblUsername.AutoSize = true;
+            lblUsername.Top = 115;
+
+            int buttonWidth = 200;
+            int columnGap = 40;
+
+            int totalWidth =
+                (buttonWidth * 2) + columnGap;
+
+            int leftColumn =
+                (ClientSize.Width - totalWidth) / 2;
+
+            int rightColumn =
+                leftColumn + buttonWidth + columnGap;
+
+            bool isAdmin = IsAdministrator();
+
+            if (isAdmin)
+            {
+                ConfigureButton(
+                    btnUsers,
+                    "Usuarios",
+                    leftColumn,
+                    170
+                );
+
+                ConfigureButton(
+                    btnTrainers,
+                    "Entrenadores",
+                    rightColumn,
+                    170
+                );
+
+                ConfigureButton(
+                    btnRoutines,
+                    "Rutinas",
+                    leftColumn,
+                    250
+                );
+
+                ConfigureButton(
+                    btnMeasurements,
+                    "Mediciones",
+                    rightColumn,
+                    250
+                );
+
+                ConfigureButton(
+                    btnVisits,
+                    "Visitas y clases",
+                    leftColumn,
+                    330
+                );
+
+                ConfigureButton(
+                    btnGoals,
+                    "Objetivos físicos",
+                    rightColumn,
+                    330
+                );
+
+                ConfigureButton(
+                    btnBadges,
+                    "Insignias y logros",
+                    leftColumn,
+                    410
+                );
+
+                ConfigureButton(
+                    btnReports,
+                    "Reportes y estadísticas",
+                    rightColumn,
+                    410
+                );
+
+                Controls.Add(btnUsers);
+                Controls.Add(btnTrainers);
+                Controls.Add(btnRoutines);
+                Controls.Add(btnMeasurements);
+                Controls.Add(btnVisits);
+                Controls.Add(btnGoals);
+                Controls.Add(btnBadges);
+                Controls.Add(btnReports);
+
+                btnUsers.Click += (sender, e) =>
+                {
+                    if (!IsAdministrator())
+                    {
+                        ShowAccessDenied();
+                        return;
+                    }
+
+                    using (UsersView view =
+                        new UsersView(currentUser))
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                btnTrainers.Click += (sender, e) =>
+                {
+                    if (!IsAdministrator())
+                    {
+                        ShowAccessDenied();
+                        return;
+                    }
+
+                    using (TrainersView view =
+                        new TrainersView())
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                btnRoutines.Click += (sender, e) =>
+                {
+                    if (!IsAdministrator())
+                    {
+                        ShowAccessDenied();
+                        return;
+                    }
+
+                    using (RoutinesView view =
+                        new RoutinesView())
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                btnMeasurements.Click += (sender, e) =>
+                {
+                    if (!IsAdministrator())
+                    {
+                        ShowAccessDenied();
+                        return;
+                    }
+
+                    using (MeasurementsView view =
+                        new MeasurementsView())
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                btnVisits.Click += (sender, e) =>
+                {
+                    if (!IsAdministrator())
+                    {
+                        ShowAccessDenied();
+                        return;
+                    }
+
+                    using (VisitsView view =
+                        new VisitsView())
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                btnGoals.Click += (sender, e) =>
+                {
+                    if (!IsAdministrator())
+                    {
+                        ShowAccessDenied();
+                        return;
+                    }
+
+                    using (FitnessGoalsView view =
+                        new FitnessGoalsView())
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                btnBadges.Click += (sender, e) =>
+                {
+                    if (!IsAdministrator())
+                    {
+                        ShowAccessDenied();
+                        return;
+                    }
+
+                    using (BadgesView view =
+                        new BadgesView())
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+
+                btnReports.Click += (sender, e) =>
+                {
+                    if (!IsAdministrator())
+                    {
+                        ShowAccessDenied();
+                        return;
+                    }
+
+                    using (ReportsView view =
+                        new ReportsView())
+                    {
+                        view.ShowDialog(this);
+                    }
+                };
+            }
+
+            // Notificaciones disponibles para todos
+            ConfigureButton(
+                btnNotifications,
+                "Mis notificaciones",
+                (ClientSize.Width - buttonWidth) / 2,
+                isAdmin ? 505 : 230
+            );
+
+            btnNotifications.Paint +=
+                BtnNotifications_Paint;
+
+            btnNotifications.TextAlign =
+                ContentAlignment.MiddleRight;
+
+            btnNotifications.Padding =
+                new Padding(0, 0, 12, 0);
+
+            btnNotifications.Click += (sender, e) =>
+            {
+                using (NotificationsView view =
+                    new NotificationsView(currentUser))
+                {
+                    view.ShowDialog(this);
+                }
+            };
+
+            ConfigureButton(
+                btnLogout,
+                "Cerrar sesión",
+                (ClientSize.Width - buttonWidth) / 2,
+                isAdmin ? 585 : 310
+            );
+
+            btnLogout.Click += (sender, e) =>
+            {
+                Close();
+            };
 
             Controls.Add(lblTitle);
             Controls.Add(lblWelcome);
-            Controls.Add(btnUsers);
-            Controls.Add(btnTrainers);
-            Controls.Add(btnRoutines);
-            Controls.Add(btnMeasurements);
-            Controls.Add(btnVisits);
-            Controls.Add(btnReports);
+            Controls.Add(lblUsername);
+            Controls.Add(btnNotifications);
             Controls.Add(btnLogout);
+
+            // Menú más pequeño para usuarios normales
+            if (!isAdmin)
+            {
+                ClientSize = new Size(650, 430);
+            }
+
+            CenterHeaderLabels();
+
+            ClientSizeChanged += (sender, e) =>
+            {
+                CenterHeaderLabels();
+            };
         }
 
+        // Mensaje de acceso restringido
+        private void ShowAccessDenied()
+        {
+            MessageBox.Show(
+                "No tiene permisos para acceder " +
+                "a este módulo.",
+                "TAYMOTIVE",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            );
+        }
+
+        // Dibujar campana
+        private void BtnNotifications_Paint(
+            object? sender,
+            PaintEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+
+            graphics.SmoothingMode =
+                SmoothingMode.AntiAlias;
+
+            using (Pen pen = new Pen(
+                Color.Black,
+                1.5f))
+            {
+                int x = 18;
+                int y = 14;
+
+                graphics.DrawArc(
+                    pen,
+                    x,
+                    y,
+                    16,
+                    16,
+                    180,
+                    180
+                );
+
+                graphics.DrawLine(
+                    pen,
+                    x,
+                    y + 8,
+                    x,
+                    y + 18
+                );
+
+                graphics.DrawLine(
+                    pen,
+                    x + 16,
+                    y + 8,
+                    x + 16,
+                    y + 18
+                );
+
+                graphics.DrawLine(
+                    pen,
+                    x - 3,
+                    y + 18,
+                    x + 19,
+                    y + 18
+                );
+
+                graphics.DrawArc(
+                    pen,
+                    x + 6,
+                    y + 18,
+                    5,
+                    5,
+                    0,
+                    180
+                );
+            }
+        }
+
+        // Centrar encabezados
+        private void CenterHeaderLabels()
+        {
+            lblTitle.Left =
+                (ClientSize.Width - lblTitle.Width) / 2;
+
+            lblWelcome.Left =
+                (ClientSize.Width - lblWelcome.Width) / 2;
+
+            lblUsername.Left =
+                (ClientSize.Width - lblUsername.Width) / 2;
+        }
+
+        // Configurar botones
         private void ConfigureButton(
             Button button,
             string text,
@@ -81,59 +454,6 @@ namespace Taymotive.Views
             button.Text = text;
             button.Location = new Point(x, y);
             button.Size = new Size(200, 50);
-        }
-
-        private void BtnUsers_Click(object? sender, EventArgs e)
-        {
-            using (UsersView view = new UsersView())
-            {
-                view.ShowDialog(this);
-            }
-        }
-
-        private void BtnTrainers_Click(object? sender, EventArgs e)
-        {
-            using (TrainersView view = new TrainersView())
-            {
-                view.ShowDialog(this);
-            }
-        }
-
-        private void BtnRoutines_Click(object? sender, EventArgs e)
-        {
-            using (RoutinesView view = new RoutinesView())
-            {
-                view.ShowDialog(this);
-            }
-        }
-
-        private void BtnMeasurements_Click(object? sender, EventArgs e)
-        {
-            using (MeasurementsView view = new MeasurementsView())
-            {
-                view.ShowDialog(this);
-            }
-        }
-
-        private void BtnVisits_Click(object? sender, EventArgs e)
-        {
-            using (VisitsView view = new VisitsView())
-            {
-                view.ShowDialog(this);
-            }
-        }
-
-        private void BtnReports_Click(object? sender, EventArgs e)
-        {
-            using (ReportsView view = new ReportsView())
-            {
-                view.ShowDialog(this);
-            }
-        }
-
-        private void BtnLogout_Click(object? sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

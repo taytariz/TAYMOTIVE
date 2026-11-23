@@ -32,6 +32,58 @@ namespace TaymotiveController.Controllers
             );
         }
 
+        // Obtener las visitas de un usuario
+        public List<Visit> GetVisitsByUser(int userId)
+        {
+            if (userId <= 0)
+            {
+                return new List<Visit>();
+            }
+
+            List<Visit> visits = fileHandler.Read();
+
+            return visits
+                .Where(v => v.UserId == userId)
+                .OrderByDescending(v => v.VisitDate)
+                .ToList();
+        }
+
+        // Contar todas las visitas de un usuario
+        public int CountVisitsByUser(int userId)
+        {
+            if (userId <= 0)
+            {
+                return 0;
+            }
+
+            List<Visit> visits = fileHandler.Read();
+
+            return visits.Count(
+                v => v.UserId == userId
+            );
+        }
+
+        // Contar visitas de un usuario entre dos fechas
+        public int CountVisitsByDateRange(
+            int userId,
+            DateTime startDate,
+            DateTime endDate)
+        {
+            if (userId <= 0 ||
+                startDate.Date > endDate.Date)
+            {
+                return 0;
+            }
+
+            List<Visit> visits = fileHandler.Read();
+
+            return visits.Count(v =>
+                v.UserId == userId &&
+                v.VisitDate.Date >= startDate.Date &&
+                v.VisitDate.Date <= endDate.Date
+            );
+        }
+
         // Registrar una nueva visita
         public bool RegisterVisit(
             int userId,

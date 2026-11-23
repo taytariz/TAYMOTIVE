@@ -1,4 +1,6 @@
 
+using System;
+
 namespace TaymotiveModels.Models
 {
     public class Routine
@@ -19,8 +21,13 @@ namespace TaymotiveModels.Models
         {
         }
 
-        public Routine(int id, string name, string description,
-                       int duration, DateTime startDate, DateTime endDate)
+        public Routine(
+            int id,
+            string name,
+            string description,
+            int duration,
+            DateTime startDate,
+            DateTime endDate)
         {
             Id = id;
             Name = name;

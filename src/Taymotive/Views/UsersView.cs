@@ -4,11 +4,15 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using TaymotiveController.Controllers;
+using TaymotiveModels.Models;
 
 namespace Taymotive.Views
 {
     public class UsersView : Form
     {
+        private readonly User currentUser;
+        private readonly UsersController usersController;
+
         private Label lblTitle = new Label();
         private Label lblTotal = new Label();
 
@@ -19,11 +23,15 @@ namespace Taymotive.Views
         private Button btnDelete = new Button();
         private Button btnRefresh = new Button();
         private Button btnClose = new Button();
+        private Button btnActivation = new Button();
 
-        private readonly UsersController usersController;
-
-        public UsersView()
+        public UsersView(User currentUser)
         {
+            this.currentUser = currentUser ??
+                throw new ArgumentNullException(
+                    nameof(currentUser)
+                );
+
             string filePath = Path.Combine(
                 Directory.GetCurrentDirectory(),
                 "Files",
@@ -39,9 +47,11 @@ namespace Taymotive.Views
         private void InitializeComponents()
         {
             this.Text = "TAYMOTIVE - Gestión de usuarios";
-            this.Size = new Size(900, 570);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.ClientSize = new Size(900, 590);
+            this.StartPosition =
+                FormStartPosition.CenterParent;
+            this.FormBorderStyle =
+                FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
 
             lblTitle.Text = "GESTIÓN DE USUARIOS";
@@ -79,30 +89,61 @@ namespace Taymotive.Views
             dgvUsers.Columns.Add("Weight", "Peso (kg)");
             dgvUsers.Columns.Add("Height", "Estatura (m)");
 
-            btnRegister.Text = "Registrar usuario";
-            btnRegister.Location = new Point(30, 445);
-            btnRegister.Size = new Size(155, 40);
+            ConfigureButton(
+                btnRegister,
+                "Registrar usuario",
+                30,
+                445
+            );
+
+            ConfigureButton(
+                btnEdit,
+                "Modificar usuario",
+                195,
+                445
+            );
+
+            ConfigureButton(
+                btnDelete,
+                "Eliminar usuario",
+                360,
+                445
+            );
+
+            ConfigureButton(
+                btnRefresh,
+                "Actualizar",
+                525,
+                445
+            );
+
+            ConfigureButton(
+                btnClose,
+                "Cerrar",
+                690,
+                445
+            );
+
+            btnActivation.Text =
+                "Generar código de activación";
+
+            btnActivation.Location =
+                new Point(325, 505);
+
+            btnActivation.Size =
+                new Size(250, 40);
+
+            btnActivation.Visible =
+                currentUser.IsAdmin;
+
             btnRegister.Click += BtnRegister_Click;
-
-            btnEdit.Text = "Modificar usuario";
-            btnEdit.Location = new Point(195, 445);
-            btnEdit.Size = new Size(155, 40);
             btnEdit.Click += BtnEdit_Click;
-
-            btnDelete.Text = "Eliminar usuario";
-            btnDelete.Location = new Point(360, 445);
-            btnDelete.Size = new Size(155, 40);
             btnDelete.Click += BtnDelete_Click;
-
-            btnRefresh.Text = "Actualizar";
-            btnRefresh.Location = new Point(525, 445);
-            btnRefresh.Size = new Size(155, 40);
             btnRefresh.Click += BtnRefresh_Click;
-
-            btnClose.Text = "Cerrar";
-            btnClose.Location = new Point(690, 445);
-            btnClose.Size = new Size(155, 40);
             btnClose.Click += BtnClose_Click;
+
+            btnActivation.Click +=
+                BtnActivation_Click;
 
             this.Controls.Add(lblTitle);
             this.Controls.Add(lblTotal);
@@ -112,6 +153,18 @@ namespace Taymotive.Views
             this.Controls.Add(btnDelete);
             this.Controls.Add(btnRefresh);
             this.Controls.Add(btnClose);
+            this.Controls.Add(btnActivation);
+        }
+
+        private void ConfigureButton(
+            Button button,
+            string text,
+            int x,
+            int y)
+        {
+            button.Text = text;
+            button.Location = new Point(x, y);
+            button.Size = new Size(155, 40);
         }
 
         // Cargar usuarios en la tabla
@@ -143,7 +196,8 @@ namespace Taymotive.Views
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al cargar usuarios: " + ex.Message,
+                    "Error al cargar usuarios: " +
+                    ex.Message,
                     "TAYMOTIVE",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -185,7 +239,8 @@ namespace Taymotive.Views
             }
 
             int userId = Convert.ToInt32(
-                dgvUsers.SelectedRows[0].Cells["Id"].Value
+                dgvUsers.SelectedRows[0]
+                    .Cells["Id"].Value
             );
 
             using (EditUserView editView =
@@ -217,11 +272,13 @@ namespace Taymotive.Views
             }
 
             int userId = Convert.ToInt32(
-                dgvUsers.SelectedRows[0].Cells["Id"].Value
+                dgvUsers.SelectedRows[0]
+                    .Cells["Id"].Value
             );
 
             string username = Convert.ToString(
-                dgvUsers.SelectedRows[0].Cells["Username"].Value
+                dgvUsers.SelectedRows[0]
+                    .Cells["Username"].Value
             ) ?? "";
 
             if (string.Equals(
@@ -239,14 +296,16 @@ namespace Taymotive.Views
                 return;
             }
 
-            DialogResult confirmation = MessageBox.Show(
-                "¿Está seguro de eliminar al usuario " +
-                username + "?\nEsta acción no se puede deshacer.",
-                "TAYMOTIVE - Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2
-            );
+            DialogResult confirmation =
+                MessageBox.Show(
+                    "¿Está seguro de eliminar al usuario " +
+                    username +
+                    "?\nEsta acción no se puede deshacer.",
+                    "TAYMOTIVE - Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button2
+                );
 
             if (confirmation != DialogResult.Yes)
             {
@@ -255,7 +314,8 @@ namespace Taymotive.Views
 
             try
             {
-                bool deleted = usersController.DeleteUser(userId);
+                bool deleted =
+                    usersController.DeleteUser(userId);
 
                 if (deleted)
                 {
@@ -281,7 +341,173 @@ namespace Taymotive.Views
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al eliminar usuario: " + ex.Message,
+                    "Error al eliminar usuario: " +
+                    ex.Message,
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        // Generar código de activación
+        private void BtnActivation_Click(
+            object? sender,
+            EventArgs e)
+        {
+            if (!currentUser.IsAdmin)
+            {
+                MessageBox.Show(
+                    "Solo el Administrador puede " +
+                    "generar códigos de activación.",
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            if (dgvUsers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione un usuario para activar.",
+                    "TAYMOTIVE",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            int userId = Convert.ToInt32(
+                dgvUsers.SelectedRows[0]
+                    .Cells["Id"].Value
+            );
+
+            string username = Convert.ToString(
+                dgvUsers.SelectedRows[0]
+                    .Cells["Username"].Value
+            ) ?? "";
+
+            DialogResult confirmation =
+                MessageBox.Show(
+                    "¿Desea generar un código de activación " +
+                    "para el usuario " + username + "?",
+                    "TAYMOTIVE - Activación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+            if (confirmation != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                string? code =
+                    usersController.GenerateActivationCode(
+                        currentUser.Id,
+                        userId
+                    );
+
+                if (code == null)
+                {
+                    MessageBox.Show(
+                        "No se pudo generar el código.\n" +
+                        "Verifique que el usuario exista " +
+                        "y todavía no tenga contraseña.",
+                        "TAYMOTIVE",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    return;
+                }
+
+                // Mostrar el código solo una vez
+                using (Form codeForm = new Form())
+                {
+                    codeForm.Text =
+                        "TAYMOTIVE - Código de activación";
+
+                    codeForm.ClientSize =
+                        new Size(480, 220);
+
+                    codeForm.StartPosition =
+                        FormStartPosition.CenterParent;
+
+                    codeForm.FormBorderStyle =
+                        FormBorderStyle.FixedDialog;
+
+                    codeForm.MaximizeBox = false;
+                    codeForm.MinimizeBox = false;
+
+                    Label lblMessage = new Label();
+                    lblMessage.Text =
+                        "Código de activación para " +
+                        username + ":";
+
+                    lblMessage.Location =
+                        new Point(35, 30);
+
+                    lblMessage.AutoSize = true;
+
+                    TextBox txtCode = new TextBox();
+                    txtCode.Text = code;
+                    txtCode.ReadOnly = true;
+                    txtCode.TextAlign =
+                        HorizontalAlignment.Center;
+
+                    txtCode.Font = new Font(
+                        "Consolas",
+                        14,
+                        FontStyle.Bold
+                    );
+
+                    txtCode.Location =
+                        new Point(35, 75);
+
+                    txtCode.Size =
+                        new Size(410, 30);
+
+                    Label lblExpiration = new Label();
+                    lblExpiration.Text =
+                        "Válido por 24 horas. " +
+                        "Se puede utilizar una sola vez.";
+
+                    lblExpiration.Location =
+                        new Point(35, 120);
+
+                    lblExpiration.AutoSize = true;
+
+                    Button btnOk = new Button();
+                    btnOk.Text = "Cerrar";
+                    btnOk.Location =
+                        new Point(180, 160);
+
+                    btnOk.Size =
+                        new Size(120, 35);
+
+                    btnOk.DialogResult =
+                        DialogResult.OK;
+
+                    codeForm.Controls.Add(lblMessage);
+                    codeForm.Controls.Add(txtCode);
+                    codeForm.Controls.Add(lblExpiration);
+                    codeForm.Controls.Add(btnOk);
+
+                    codeForm.AcceptButton = btnOk;
+
+                    codeForm.ShowDialog(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al generar código: " +
+                    ex.Message,
                     "TAYMOTIVE",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error

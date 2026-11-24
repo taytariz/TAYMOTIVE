@@ -482,7 +482,7 @@ $RECYCLE.BIN/
 *.swp
 
 # Datos locales de TAYMOTIVE
-Files/*.json/DemoDataGenerator/
+Files/*.json
 /AsignarEntrenadores.ps1
 /Files/
 /DemoDataGenerator/

@@ -63,7 +63,7 @@ namespace TaymotiveController.Controllers
             );
         }
 
-        // Contar visitas de un usuario entre dos fechas
+        // Contar visitas entre dos fechas
         public int CountVisitsByDateRange(
             int userId,
             DateTime startDate,
@@ -84,6 +84,26 @@ namespace TaymotiveController.Controllers
             );
         }
 
+        // Comprobar si existe una visita equivalente
+        private static bool VisitExists(
+            List<Visit> visits,
+            int userId,
+            DateTime visitDate,
+            string className,
+            int excludedId = 0)
+        {
+            return visits.Any(v =>
+                v.Id != excludedId &&
+                v.UserId == userId &&
+                v.VisitDate.Date == visitDate.Date &&
+                string.Equals(
+                    v.ClassName?.Trim(),
+                    className.Trim(),
+                    StringComparison.OrdinalIgnoreCase
+                )
+            );
+        }
+
         // Registrar una nueva visita
         public bool RegisterVisit(
             int userId,
@@ -97,6 +117,16 @@ namespace TaymotiveController.Controllers
             }
 
             List<Visit> visits = fileHandler.Read();
+
+            // Evitar visitas duplicadas
+            if (VisitExists(
+                visits,
+                userId,
+                visitDate,
+                className))
+            {
+                return false;
+            }
 
             int newId = visits.Count > 0
                 ? visits.Max(v => v.Id) + 1
@@ -123,7 +153,8 @@ namespace TaymotiveController.Controllers
             DateTime visitDate,
             string className)
         {
-            if (userId <= 0 ||
+            if (id <= 0 ||
+                userId <= 0 ||
                 string.IsNullOrWhiteSpace(className))
             {
                 return false;
@@ -136,6 +167,17 @@ namespace TaymotiveController.Controllers
             );
 
             if (visit == null)
+            {
+                return false;
+            }
+
+            // Evitar duplicados al modificar
+            if (VisitExists(
+                visits,
+                userId,
+                visitDate,
+                className,
+                id))
             {
                 return false;
             }

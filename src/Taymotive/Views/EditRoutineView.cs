@@ -16,6 +16,8 @@ namespace Taymotive.Views
         private readonly TextBox txtDescription = new TextBox();
 
         private readonly NumericUpDown numDuration = new NumericUpDown();
+        private readonly NumericUpDown numSets = new NumericUpDown();
+        private readonly NumericUpDown numRepetitions = new NumericUpDown();
 
         private readonly DateTimePicker dtpStartDate = new DateTimePicker();
         private readonly DateTimePicker dtpEndDate = new DateTimePicker();
@@ -44,11 +46,11 @@ namespace Taymotive.Views
 
         private void InitializeComponents()
         {
-            this.Text = "TAYMOTIVE - Modificar rutina";
-            this.Size = new Size(550, 520);
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            Text = "TAYMOTIVE - Modificar rutina";
+            Size = new Size(550, 660);
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
             lblTitle.Text = "MODIFICAR RUTINA";
             lblTitle.Font = new Font(
@@ -59,63 +61,80 @@ namespace Taymotive.Views
             lblTitle.AutoSize = true;
             lblTitle.Location = new Point(125, 25);
 
-            AddLabel("Nombre:", 55, 110);
-            txtName.Location = new Point(220, 105);
+            AddLabel("Nombre:", 55, 105);
+            txtName.Location = new Point(220, 100);
             txtName.Width = 250;
 
-            AddLabel("Descripción:", 55, 165);
-            txtDescription.Location = new Point(220, 160);
+            AddLabel("Descripción:", 55, 155);
+            txtDescription.Location = new Point(220, 150);
             txtDescription.Size = new Size(250, 65);
             txtDescription.Multiline = true;
 
-            AddLabel("Duración (min):", 55, 255);
-            numDuration.Location = new Point(220, 250);
+            AddLabel("Duración (min):", 55, 245);
+            numDuration.Location = new Point(220, 240);
             numDuration.Width = 250;
             numDuration.Minimum = 1;
             numDuration.Maximum = 600;
 
-            AddLabel("Fecha inicio:", 55, 310);
-            dtpStartDate.Location = new Point(220, 305);
+            AddLabel("Series:", 55, 295);
+            numSets.Location = new Point(220, 290);
+            numSets.Width = 250;
+            numSets.Minimum = 1;
+            numSets.Maximum = 100;
+            numSets.Value = 3;
+
+            AddLabel("Repeticiones:", 55, 345);
+            numRepetitions.Location = new Point(220, 340);
+            numRepetitions.Width = 250;
+            numRepetitions.Minimum = 1;
+            numRepetitions.Maximum = 1000;
+            numRepetitions.Value = 12;
+
+            AddLabel("Fecha inicio:", 55, 395);
+            dtpStartDate.Location = new Point(220, 390);
             dtpStartDate.Width = 250;
             dtpStartDate.Format = DateTimePickerFormat.Short;
 
-            AddLabel("Fecha fin:", 55, 365);
-            dtpEndDate.Location = new Point(220, 360);
+            AddLabel("Fecha fin:", 55, 445);
+            dtpEndDate.Location = new Point(220, 440);
             dtpEndDate.Width = 250;
             dtpEndDate.Format = DateTimePickerFormat.Short;
 
             btnSave.Text = "Guardar cambios";
-            btnSave.Location = new Point(115, 415);
+            btnSave.Location = new Point(115, 520);
             btnSave.Size = new Size(140, 40);
             btnSave.Click += BtnSave_Click;
 
             btnCancel.Text = "Cancelar";
-            btnCancel.Location = new Point(285, 415);
+            btnCancel.Location = new Point(285, 520);
             btnCancel.Size = new Size(140, 40);
             btnCancel.Click += BtnCancel_Click;
 
-            this.AcceptButton = btnSave;
-            this.CancelButton = btnCancel;
+            AcceptButton = btnSave;
+            CancelButton = btnCancel;
 
-            this.Controls.Add(lblTitle);
-            this.Controls.Add(txtName);
-            this.Controls.Add(txtDescription);
-            this.Controls.Add(numDuration);
-            this.Controls.Add(dtpStartDate);
-            this.Controls.Add(dtpEndDate);
-            this.Controls.Add(btnSave);
-            this.Controls.Add(btnCancel);
+            Controls.Add(lblTitle);
+            Controls.Add(txtName);
+            Controls.Add(txtDescription);
+            Controls.Add(numDuration);
+            Controls.Add(numSets);
+            Controls.Add(numRepetitions);
+            Controls.Add(dtpStartDate);
+            Controls.Add(dtpEndDate);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
         }
 
         private void AddLabel(string text, int x, int y)
         {
-            Label label = new Label();
+            Label label = new Label
+            {
+                Text = text,
+                Location = new Point(x, y),
+                AutoSize = true
+            };
 
-            label.Text = text;
-            label.Location = new Point(x, y);
-            label.AutoSize = true;
-
-            this.Controls.Add(label);
+            Controls.Add(label);
         }
 
         private void LoadRoutine()
@@ -145,6 +164,18 @@ namespace Taymotive.Views
                     (decimal)routine.Duration,
                     numDuration.Minimum,
                     numDuration.Maximum
+                );
+
+                numSets.Value = Math.Clamp(
+                    (decimal)routine.Sets,
+                    numSets.Minimum,
+                    numSets.Maximum
+                );
+
+                numRepetitions.Value = Math.Clamp(
+                    (decimal)routine.Repetitions,
+                    numRepetitions.Minimum,
+                    numRepetitions.Maximum
                 );
 
                 dtpStartDate.Value = routine.StartDate;
@@ -199,7 +230,9 @@ namespace Taymotive.Views
                     txtDescription.Text,
                     (int)numDuration.Value,
                     dtpStartDate.Value.Date,
-                    dtpEndDate.Value.Date
+                    dtpEndDate.Value.Date,
+                    (int)numSets.Value,
+                    (int)numRepetitions.Value
                 );
 
                 if (updated)
@@ -211,8 +244,8 @@ namespace Taymotive.Views
                         MessageBoxIcon.Information
                     );
 
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
                 else
                 {
@@ -237,8 +270,8 @@ namespace Taymotive.Views
 
         private void BtnCancel_Click(object? sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

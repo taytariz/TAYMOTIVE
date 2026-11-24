@@ -17,15 +17,22 @@ namespace TaymotiveModels.Models
 
         public DateTime EndDate { get; set; }
 
-        // Entrenador responsable de la rutina
-        // 0 significa que todavía no tiene entrenador
+        // Entrenador responsable de la rutina.
+        // 0 significa que no tiene entrenador asignado.
         public int TrainerId { get; set; }
+
+        // Cantidad de series y repeticiones.
+        // El valor 0 permite conservar rutinas antiguas
+        // que todavía no tienen estos datos registrados.
+        public int Sets { get; set; }
+
+        public int Repetitions { get; set; }
 
         public Routine()
         {
         }
 
-        // Constructor existente
+        // Constructor original: se conserva por compatibilidad.
         public Routine(
             int id,
             string name,
@@ -43,7 +50,7 @@ namespace TaymotiveModels.Models
             TrainerId = 0;
         }
 
-        // Constructor con entrenador asignado
+        // Constructor original con entrenador asignado.
         public Routine(
             int id,
             string name,
@@ -52,14 +59,26 @@ namespace TaymotiveModels.Models
             DateTime startDate,
             DateTime endDate,
             int trainerId)
+            : this(id, name, description, duration, startDate, endDate)
         {
-            Id = id;
-            Name = name;
-            Description = description;
-            Duration = duration;
-            StartDate = startDate;
-            EndDate = endDate;
             TrainerId = trainerId;
+        }
+
+        // Constructor con series y repeticiones.
+        public Routine(
+            int id,
+            string name,
+            string description,
+            int duration,
+            DateTime startDate,
+            DateTime endDate,
+            int trainerId,
+            int sets,
+            int repetitions)
+            : this(id, name, description, duration, startDate, endDate, trainerId)
+        {
+            Sets = sets;
+            Repetitions = repetitions;
         }
     }
 }

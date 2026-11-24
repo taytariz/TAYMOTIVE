@@ -16,29 +16,23 @@ namespace TaymotiveController.Controllers
             fileHandler = new FileHandler<User>(filePath);
         }
 
-        // Obtener todos los usuarios
         public List<User> GetUsers()
         {
             return fileHandler.Read();
         }
 
-        // Obtener todas las rutinas
         public List<Routine> GetRoutines()
         {
-            List<User> users = GetUsers();
-
-            return users
+            return GetUsers()
                 .SelectMany(user => user.Routines)
                 .ToList();
         }
 
-        // Obtener cantidad total de rutinas
         public int GetTotalRoutines()
         {
             return GetRoutines().Count;
         }
 
-        // Obtener rutinas de un usuario
         public List<Routine> GetRoutinesByUser(int userId)
         {
             User? user = GetUsers()
@@ -47,14 +41,14 @@ namespace TaymotiveController.Controllers
             return user?.Routines ?? new List<Routine>();
         }
 
-        // Buscar rutina por ID
         public Routine? GetRoutineById(int routineId)
         {
             return GetRoutines()
                 .FirstOrDefault(r => r.Id == routineId);
         }
 
-        // Registrar y asignar una rutina a un usuario
+        // Constructor de registro original.
+        // Se conserva para mantener compatibilidad.
         public bool RegisterRoutine(
             int userId,
             string name,
@@ -63,10 +57,37 @@ namespace TaymotiveController.Controllers
             DateTime startDate,
             DateTime endDate)
         {
+            return RegisterRoutine(
+                userId,
+                name,
+                description,
+                duration,
+                startDate,
+                endDate,
+                0,
+                0
+            );
+        }
+
+        // Registro con series y repeticiones.
+        public bool RegisterRoutine(
+            int userId,
+            string name,
+            string description,
+            int duration,
+            DateTime startDate,
+            DateTime endDate,
+            int sets,
+            int repetitions)
+        {
             if (userId <= 0 ||
                 string.IsNullOrWhiteSpace(name) ||
                 duration <= 0 ||
-                endDate < startDate)
+                endDate.Date < startDate.Date ||
+                sets < 0 ||
+                repetitions < 0 ||
+                (sets == 0 && repetitions > 0) ||
+                (sets > 0 && repetitions == 0))
             {
                 return false;
             }
@@ -90,20 +111,22 @@ namespace TaymotiveController.Controllers
             Routine routine = new Routine(
                 newId,
                 name.Trim(),
-                description.Trim(),
+                description?.Trim() ?? string.Empty,
                 duration,
                 startDate,
-                endDate
+                endDate,
+                0,
+                sets,
+                repetitions
             );
 
             user.Routines.Add(routine);
-
             fileHandler.Save(users);
 
             return true;
         }
 
-        // Modificar una rutina existente
+        // Edición original.
         public bool UpdateRoutine(
             int routineId,
             string name,
@@ -114,7 +137,7 @@ namespace TaymotiveController.Controllers
         {
             if (string.IsNullOrWhiteSpace(name) ||
                 duration <= 0 ||
-                endDate < startDate)
+                endDate.Date < startDate.Date)
             {
                 return false;
             }
@@ -131,7 +154,7 @@ namespace TaymotiveController.Controllers
             }
 
             routine.Name = name.Trim();
-            routine.Description = description.Trim();
+            routine.Description = description?.Trim() ?? string.Empty;
             routine.Duration = duration;
             routine.StartDate = startDate;
             routine.EndDate = endDate;
@@ -141,7 +164,52 @@ namespace TaymotiveController.Controllers
             return true;
         }
 
-        // Eliminar una rutina
+        // Edición con series y repeticiones.
+        public bool UpdateRoutine(
+            int routineId,
+            string name,
+            string description,
+            int duration,
+            DateTime startDate,
+            DateTime endDate,
+            int sets,
+            int repetitions)
+        {
+            if (sets < 0 ||
+                repetitions < 0 ||
+                (sets == 0 && repetitions > 0) ||
+                (sets > 0 && repetitions == 0))
+            {
+                return false;
+            }
+
+            List<User> users = GetUsers();
+
+            Routine? routine = users
+                .SelectMany(u => u.Routines)
+                .FirstOrDefault(r => r.Id == routineId);
+
+            if (routine == null ||
+                string.IsNullOrWhiteSpace(name) ||
+                duration <= 0 ||
+                endDate.Date < startDate.Date)
+            {
+                return false;
+            }
+
+            routine.Name = name.Trim();
+            routine.Description = description?.Trim() ?? string.Empty;
+            routine.Duration = duration;
+            routine.StartDate = startDate;
+            routine.EndDate = endDate;
+            routine.Sets = sets;
+            routine.Repetitions = repetitions;
+
+            fileHandler.Save(users);
+
+            return true;
+        }
+
         public bool DeleteRoutine(int routineId)
         {
             List<User> users = GetUsers();
@@ -167,13 +235,11 @@ namespace TaymotiveController.Controllers
             }
 
             userRoutines.Remove(routineToDelete);
-
             fileHandler.Save(users);
 
             return true;
         }
 
-        // Asignar un entrenador a una rutina existente
         public bool AssignTrainerToRoutine(
             int routineId,
             int trainerId)
@@ -195,15 +261,12 @@ namespace TaymotiveController.Controllers
             }
 
             routine.TrainerId = trainerId;
-
             fileHandler.Save(users);
 
             return true;
         }
 
-        // Obtener las rutinas de un entrenador
-        public List<Routine> GetRoutinesByTrainer(
-            int trainerId)
+        public List<Routine> GetRoutinesByTrainer(int trainerId)
         {
             if (trainerId <= 0)
             {
@@ -217,7 +280,6 @@ namespace TaymotiveController.Controllers
                 .ToList();
         }
 
-        // Obtener rutinas próximas a vencer
         public List<Routine> GetExpiringRoutinesByTrainer(
             int trainerId,
             int daysBeforeExpiration = 7)
@@ -229,9 +291,7 @@ namespace TaymotiveController.Controllers
             }
 
             DateTime today = DateTime.Today;
-
-            DateTime limitDate =
-                today.AddDays(daysBeforeExpiration);
+            DateTime limitDate = today.AddDays(daysBeforeExpiration);
 
             return GetRoutinesByTrainer(trainerId)
                 .Where(routine =>
